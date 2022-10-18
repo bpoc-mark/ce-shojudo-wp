@@ -1,0 +1,68 @@
+##--------------------------------------------
+
+## .gitignore for wordpress
+
+## base file from GITHUB
+
+## repo: https://github.com/github/gitignore/blob/master/WordPress.gitignore
+
+##--------------------------------------------
+
+# ignore everything in the root except the "wp-content" directory.
+/\*
+/*
+!wp-content/
+!sql
+!assets
+!.gitattributes
+# Add files related git and compile.
+
+!README.md
+!static_html/
+!.gitignore
+!\_scripts/
+
+# ignore everything in the "wp-content" directory, except:
+
+# "mu-plugins", "plugins", "themes" directory
+
+wp-content/\*
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/uploads/
+
+# ignore specific themes
+
+wp-content/themes/twenty\*/
+
+# IDE and editor specific files
+
+/nbproject
+.idea
+
+# OS generated files
+
+.DS*Store
+.DS_Store?
+.*\*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+
+.fuse_hidden\*
+
+# Dependency directories
+
+node_modules/
+
+# ignore log files and databases
+
+\_.log
+\*.sqlite
+
+# ignore wordpress core files except wp-content
+

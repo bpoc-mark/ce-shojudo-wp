@@ -1,0 +1,242 @@
+#Topics {
+	.breadcrumbs {
+		margin-top: 70px;
+		@include is-min(1000px) {
+			max-width: 1300px;
+			padding-left: 50px;
+			padding-right: 50px;
+			margin-top: 85px;
+		}
+	}
+	.sect1 {
+		padding-top: 100px;
+		margin-top: -90px;
+		.wrapper {
+			.container {
+				max-width: 1000px;
+				padding-top: 33px;
+				@include is-min(1000px) {
+					padding-top: 52px;
+					padding-bottom: 4px;
+				}
+				.news-topics {
+					.news-topics--title {
+						position: relative;
+						.view-all {
+							display: flex;
+							position: absolute;
+							bottom: -32px;
+							@include is-max(999px) {
+								justify-content: center;
+								align-items: center;
+								width: 100%;
+							}
+							@include is-min(1000px) {
+								right: 0;
+								top: 17px;
+							}
+							&:hover {
+								opacity: 0.6;
+							}
+							p {
+								font-size: 14px;
+								padding-right: 5px;
+							}
+						}
+					}
+					ul {
+						li {
+							position: relative;
+							border-bottom: 1px solid #cccccc;
+							padding: 12px 0 17px;
+							@include is-min(1000px) {
+								padding: 30px 0;
+							}
+							@include is-min(769px) {
+								display: flex;
+							}
+							&:last-child {
+								border-bottom: 0;
+							}
+							span {
+								font-size: 12px;
+								color: #939393;
+								width: 120px;
+								@include is-min(769px) {
+									padding-top: 2px;
+								}
+							}
+							.topics--right {
+								@include is-min(769px) {
+									width: calc(100% - 125px);
+								}
+								&__title {
+									font-size: 17px;
+								}
+							}
+							p {
+								a {
+									color: #0035ad;
+									text-decoration: underline;
+									@include is-max(370px) {
+										font-size: 4.054vw;
+									}
+								}
+							}
+							p,
+							.content {
+								line-height: 25px;
+								font-size: 15px;
+								@include is-max(999px) {
+									padding-top: 3px;
+								}
+							}
+							.content {
+								&--top,
+								&--mid,
+								&--lower {
+									padding-top: 10px;
+									@include is-min(769px) {
+										padding-top: 13px;
+									}
+								}
+							}
+							figure {
+								img {
+									padding-top: 10px;
+									@include is-min(1000px) {
+										padding-top: 15px;
+									}
+								}
+							}
+						}
+					}
+					.wp-pagenavi {
+						padding-top: 10px;
+						padding-bottom: 10px;
+						@include is-min(1000px) {
+							padding-top: 25px;
+							padding-bottom: 20px;
+						}
+						.current {
+							background-color: #0035ad;
+							margin-right: 28px;
+						}
+						.page {
+							margin-right: 28px;
+							color: #0035ad;
+						}
+						.nextpostslink,
+						.previouspostslink {
+							color: #0035ad;
+							padding-top: 3px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.sect2 {
+		background-color: #ecf0fa;
+		.wrapper {
+			.container {
+				padding-top: 30px;
+				padding-bottom: 10px;
+				text-align: center;
+				@include is-min(1000px) {
+					padding-top: 50px;
+					padding-bottom: 50px;
+				}
+				p {
+					font-size: 15px;
+				}
+				.contact-us {
+					padding-top: 10px;
+					padding-bottom: 5px;
+					@include is-min(1000px) {
+						padding-top: 30px;
+						padding-bottom: 20px;
+						br {
+							display: none;
+						}
+					}
+
+					&--small {
+						@include is-min(1000px) {
+							padding-bottom: 10px;
+						}
+					}
+				}
+				h3 {
+					font-size: 45px;
+					a {
+						color: #0035ad;
+					}
+				}
+				.sect2--btn {
+					margin: 0 auto;
+					padding: 20px 0;
+					@include is-min(1000px) {
+						max-width: 729px;
+					}
+					ul {
+						@include is-min(1000px) {
+							display: flex;
+							justify-content: center;
+							margin: 0 -10px;
+						}
+						li {
+							border-radius: 10px;
+							background-color: #0035ad;
+							padding-top: 10px;
+							padding-bottom: 10px;
+							margin: 8px auto;
+							position: relative;
+							justify-content: center;
+							cursor: pointer;
+							&:hover {
+								opacity: 0.6;
+							}
+							@include is-min(1000px) {
+								display: flex;
+								align-items: center;
+								width: calc(100% / 3);
+								padding: 20px 20px;
+								margin: 0 10px;
+							}
+							@include is-min(769px) {
+								max-width: 729px;
+							}
+							a {
+								color: #ffff;
+								font-size: 20px;
+								font-weight: 700;
+								text-align: left;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								@include is-max(999px) {
+									br {
+										display: none;
+									}
+								}
+								figure {
+									margin-left: 15px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.page__footer {
+	.footer01 {
+		.container {
+			.f-nav {
+				border-top: none !important;
+			}
+		}
+	}
+}
