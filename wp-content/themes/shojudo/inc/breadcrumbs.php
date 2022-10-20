@@ -19,6 +19,25 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">デジタル印刷紹介</span>
                     ';
+        } elseif (is_page('company-careers')) {
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">採用情報</span>
+                    ';
+        } elseif (is_page('company')) {
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">会社案内</span>
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">沿革</span>
+                    ';
+        } elseif (is_page('company-office')) {
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">会社案内</span>
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">事業所</span>
+                    ';
         }
         ?>
     </div>

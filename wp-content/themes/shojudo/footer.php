@@ -124,26 +124,29 @@
                             <h4 class="f-nav--wrap__title">その他</h4>
                             <ul class="f-nav--list">
                                 <li class="f-nav--item">
-                                    <a href="https://www.shojudo.co.jp/company/index.html" class="f-nav--link">会社案内</a>
+                                    <a href="https://www.shojudo.co.jp/company/index.html" class="f-nav--link">ニュース</a>
                                 </li>
                                 <li class="f-nav--item">
-                                    <a href="https://shojudo.com/news/" class="f-nav--link">ニュース</a>
+                                    <a href="https://shojudo.com/news/" class="f-nav--link">会社案内</a>
                                 </li>
                                 <li class="f-nav--item">
-                                    <a href="https://www.shojudo.co.jp/company/careers.html"
-                                        class="f-nav--link">採用情報</a>
+                                    <a href="https://www.shojudo.co.jp/company/careers.html" class="f-nav--link">沿革</a>
                                 </li>
                                 <li class="f-nav--item">
                                     <a href="https://www.shojudo.co.jp/supprot/toiawase.html" target="_blank"
-                                        class="f-nav--link">お問い合わせ<br> 法人様</a>
+                                        class="f-nav--link">事業所</a>
                                 </li>
                                 <li class="f-nav--item">
                                     <a href="https://www.shojudo.co.jp/supprot/toiawasekojin.html" target="_blank"
-                                        class="f-nav--link">お問い合わせ<br> 個人様</a>
+                                        class="f-nav--link">CSR</a>
                                 </li>
                                 <li class="f-nav--item">
                                     <a href="https://www.shojudo.co.jp/supprot/omitumori.html" target="_blank"
-                                        class="f-nav--link">お見積もり</a>
+                                        class="f-nav--link">採用情報</a>
+                                </li>
+                                <li class="f-nav--item">
+                                    <a href="https://www.shojudo.co.jp/privacypolicy.html"
+                                        class="f-nav--link">お問い合わせ</a>
                                 </li>
                                 <li class="f-nav--item">
                                     <a href="https://www.shojudo.co.jp/privacypolicy.html"

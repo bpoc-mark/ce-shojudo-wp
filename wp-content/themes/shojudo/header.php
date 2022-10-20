@@ -176,12 +176,8 @@
                                     </div>
                                 </li>
                                 <li class="nav02--item">
-                                    <a href="https://www.shojudo.co.jp/company/careers.html"
+                                    <a href="<?php echo get_permalink(get_page_by_path('company-careers')); ?>"
                                         class="nav02--link">採用情報</a>
-                                </li>
-                                <li class="nav02--item">
-                                    <a href="https://www.shojudo.co.jp/supprot/omitumori.html" target="_blank"
-                                        class="nav02--link">お見積もり</a>
                                 </li>
                                 <li class="nav01--item"
                                     onclick="location.href='https://www.shojudo.co.jp/supprot/toiawase.html';">
