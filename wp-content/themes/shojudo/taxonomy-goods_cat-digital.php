@@ -22,9 +22,10 @@
                                 </div>
                                 <div class="box--lower-desc">
                                     <?php
-                                        $tags = get_the_tags();
+                                        $tags = get_the_terms($post->ID, 'tags');
                                         if ($tags) :
-                                            foreach ($tags as $tag) : ?>
+                                            foreach ($tags as $tag) :
+                                        ?>
                                     <span><?php echo esc_html($tag->name); ?></span>
                                     <?php endforeach; ?>
                                     <?php endif; ?>
