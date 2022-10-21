@@ -24,8 +24,30 @@
         </div>
         <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>
-        <h3 class="single-cont__related-posts">予算もないし、万一何か起きてからと考えていませんか？</h3>
-        <h3 class="single-cont__related-posts">偽造・変造から御社を守るセキュリティ技術</h3>
+        <h3 class="single-cont__related-posts"><?php the_field('first_heading_h3'); ?></h3>
+        <p><?php the_field('first_heading_content'); ?></p>
+        <p class="single-cont__red-notice"><?php the_field('red_notice'); ?></p>
+        <h3 class="single-cont__related-posts"><?php the_field('second_heading_h3'); ?></h3>
+        <ul class="single-cont__link-list">
+            <?php $details = SCF::get('Link_Post');
+            if ($details) : ?>
+            <?php foreach ($details as $detail) :
+                    $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
+                ?>
+            <li class="single-cont__link-list--item">
+                <a href="">
+                    <div class="single-cont__link-list--item__image">
+                        <img src="<?php echo $image_attributes[0]; ?>" alt="">
+                    </div>
+                    <div class="single-cont__link-list--item__content">
+                        <p class="title"><?php echo $detail['title']; ?></p>
+                        <p class="content"><?php echo $detail['content']; ?></p>
+                    </div>
+                </a>
+            </li>
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
         <div class="single-cont__post-container">
             <h3 class="single-cont__related-posts">関連商品</h3>
             <ul class="box--wrapper">

@@ -176,8 +176,7 @@
                                     </div>
                                 </li>
                                 <li class="nav02--item">
-                                    <a href="<?php echo get_permalink(get_page_by_path('company-careers')); ?>"
-                                        class="nav02--link">採用情報</a>
+                                    <a href="<?php echo home_url('/'); ?>company-careers" class="nav02--link">採用情報</a>
                                 </li>
                                 <li class="nav01--item"
                                     onclick="location.href='https://www.shojudo.co.jp/supprot/toiawase.html';">

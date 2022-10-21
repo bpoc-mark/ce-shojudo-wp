@@ -183,7 +183,7 @@
 
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <li class="box--container">
-                            <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
+                            <a href="<?php echo get_permalink(); ?>">
                                 <figure>
                                     <?php
                                             $file = get_field('banner');
