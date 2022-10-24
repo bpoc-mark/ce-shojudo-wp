@@ -72,28 +72,8 @@
             <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
             <div class="boxes">
                 <ul class="single-cont__processing--content-list box--wrapper">
-                    <?php
-                    $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-
-                    $args = [
-                        'post_type' => 'goods',
-                        'post_status' => 'publish',
-                        'posts_per_page' => 6,
-                        'meta_query' => array(
-                            'relation' => 'OR',
-                            array(
-                                'key' => 'post_on_technology_page',
-                                'value' => '1',
-                                'compare' => 'LIKE'
-                            )
-                        ),
-                        'paged' => $paged,
-                    ];
-                    $the_query = new WP_Query($args);
-                    ?>
-                    <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <li class="single-cont__processing--content-list__item box--container">
+                    <?php while (have_posts()) : the_post(); ?>
+                    <!-- <li class="single-cont__processing--content-list__item box--container">
                         <a href="<?php echo get_permalink(); ?>">
                             <figure>
                                 <?php
@@ -115,9 +95,8 @@
                                 <p><?php echo the_content(); ?></p>
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                     <?php endwhile; ?>
-                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -127,15 +106,10 @@
                 <?php
                 $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                 $args = [
-                    'post_type' => 'goods',
+                    'post_type' => 'product',
                     'post_status' => 'publish',
                     'posts_per_page' => 3,
                     'paged' => $paged,
-                    'tax_query' => array(array(
-                        'taxonomy' => 'goods_cat',
-                        'field' => 'slug',
-                        'terms' => 'product'
-                    ))
                 ];
 
                 $the_query = new WP_Query($args);
@@ -147,7 +121,19 @@
                 <li class="box--container">
                     <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
                         <figure>
-                            <?php echo the_post_thumbnail(); ?>
+                            <?php
+                                        $file = get_field('banner');
+                                        $default_img = get_template_directory_uri();
+
+                                        if ($file['type'] == 'image') {
+                                            $img = $file['sizes']['medium_large'];
+                                            echo '<img src="' . $img . '">';
+                                        } elseif ($file) {
+                                            echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                        } else {
+                                            echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                        }
+                                        ?>
                         </figure>
                         <h3 class="box--title"><?php echo the_title(); ?></h3>
                         <div class="box--desc">

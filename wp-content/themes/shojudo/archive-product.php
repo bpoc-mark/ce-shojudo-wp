@@ -4,17 +4,17 @@
     <section class="sect1">
         <div class="wrapper">
             <div class="container">
-                <h2 class="sect--title">技術紹介</h2>
+                <h2 class="sect--title">製品紹介</h2>
                 <p class="sect--sub">
-                    1947年創業から培い、自信をもっておすすめできる印刷・加工技術。セキュリティ印刷を始めとし、各種専門分野にも使われる技術と、その効果をお試しください。<br>
-                    御社のご利用にあわせ、最適な商品をご提案いたします。お気軽にご相談ください。</p>
+                    昇寿堂の技術を詰め込んだ商品の一覧です。官庁様・企業様から一般の方まで広くご利用いただいております。<br>御社のご利用にあわせ、最適な商品をご提案いたします。お気軽にご相談ください。</p>
                 <div class="boxes">
                     <ul class="box--wrapper">
                         <?php while (have_posts()) : the_post(); ?>
                         <li class="box--container">
                             <a href="<?php echo get_permalink(); ?>">
                                 <figure>
-                                    <?php $file = get_field('banner');
+                                    <?php
+                                        $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
 
                                         if ($file['type'] == 'image') {
@@ -29,11 +29,14 @@
                                 </figure>
                                 <h3 class="box--title"><?php echo the_title(); ?></h3>
                                 <div class="box--desc">
-                                    <p><?php echo the_content(); ?></p>
+                                    <?php echo the_content(); ?>
                                 </div>
                                 <div class="box--lower-desc">
                                     <?php
-                                        $tags = get_the_terms($post->ID, 'tags');
+                                        $tags = get_the_terms(
+                                            $post->ID,
+                                            'tags'
+                                        );
                                         if ($tags) :
                                             foreach ($tags as $tag) :
                                         ?>

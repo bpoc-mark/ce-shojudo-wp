@@ -22,18 +22,10 @@
                                     <?php
                                     $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                     $args = [
-                                        'post_type' => 'goods',
+                                        'post_type' => 'product',
                                         'post_status' => 'publish',
                                         'posts_per_page' => -1,
                                         'paged' => $paged,
-                                        'tax_query' => array(
-                                            array(
-                                                'field' => 'slug',
-                                                'taxonomy' => 'goods_cat',
-                                                'terms' => 'product',
-                                                'hide_empty' => false,
-                                            ),
-                                        )
                                     ];
 
                                     $the_query = new WP_Query($args);
@@ -58,18 +50,10 @@
                                 <?php
                                 $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                 $args = [
-                                    'post_type' => 'goods',
+                                    'post_type' => 'technology',
                                     'post_status' => 'publish',
                                     'posts_per_page' => -1,
                                     'paged' => $paged,
-                                    'tax_query' => array(
-                                        array(
-                                            'field' => 'slug',
-                                            'taxonomy' => 'goods_cat',
-                                            'terms' => 'technology',
-                                            'hide_empty' => false,
-                                        ),
-                                    )
                                 ];
 
                                 $the_query = new WP_Query($args);
@@ -93,18 +77,10 @@
                                 <?php
                                 $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                 $args = [
-                                    'post_type' => 'goods',
+                                    'post_type' => 'digital',
                                     'post_status' => 'publish',
                                     'posts_per_page' => -1,
                                     'paged' => $paged,
-                                    'tax_query' => array(
-                                        array(
-                                            'field' => 'slug',
-                                            'taxonomy' => 'goods_cat',
-                                            'terms' => 'digital',
-                                            'hide_empty' => false,
-                                        ),
-                                    )
                                 ];
 
                                 $the_query = new WP_Query($args);

@@ -68,35 +68,28 @@
             <?php endforeach; ?>
             <?php endif; ?>
         </ul>
-        <div class="single-cont__processing">
-            <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
-            <div class="boxes">
-                <ul class="single-cont__processing--content-list box--wrapper">
-                    <?php
-                    $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+        <div class="single-cont__post-container">
+            <h3 class="single-cont__heading">関連商品</h3>
+            <ul class="box--wrapper">
+                <?php
+                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                $args = [
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 3,
+                    'paged' => $paged,
+                ];
 
-                    $args = [
-                        'post_type' => 'goods',
-                        'post_status' => 'publish',
-                        'posts_per_page' => 6,
-                        'meta_query' => array(
-                            'relation' => 'OR',
-                            array(
-                                'key' => 'post_on_technology_page',
-                                'value' => '1',
-                                'compare' => 'LIKE'
-                            )
-                        ),
-                        'paged' => $paged,
-                    ];
-                    $the_query = new WP_Query($args);
-                    ?>
-                    <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <li class="single-cont__processing--content-list__item box--container">
-                        <a href="<?php echo get_permalink(); ?>">
-                            <figure>
-                                <?php
+                $the_query = new WP_Query($args);
+                ?>
+
+                <?php if ($the_query->have_posts()) : ?>
+
+                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                <li class="box--container">
+                    <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
+                        <figure>
+                            <?php
                                         $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
 
@@ -109,45 +102,6 @@
                                             echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                         }
                                         ?>
-                            </figure>
-                            <h3 class="box--title"><?php echo the_title(); ?></h3>
-                            <div class="box--desc">
-                                <p><?php echo the_content(); ?></p>
-                            </div>
-                        </a>
-                    </li>
-                    <?php endwhile; ?>
-                    <?php endif; ?>
-                </ul>
-            </div>
-        </div>
-        <div class="single-cont__post-container">
-            <h3 class="single-cont__heading">関連商品</h3>
-            <ul class="box--wrapper">
-                <?php
-                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-                $args = [
-                    'post_type' => 'goods',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 3,
-                    'paged' => $paged,
-                    'tax_query' => array(array(
-                        'taxonomy' => 'goods_cat',
-                        'field' => 'slug',
-                        'terms' => 'product'
-                    ))
-                ];
-
-                $the_query = new WP_Query($args);
-                ?>
-
-                <?php if ($the_query->have_posts()) : ?>
-
-                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                <li class="box--container">
-                    <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
-                        <figure>
-                            <?php echo the_post_thumbnail(); ?>
                         </figure>
                         <h3 class="box--title"><?php echo the_title(); ?></h3>
                         <div class="box--desc">
@@ -155,9 +109,13 @@
                         </div>
                         <div class="box--lower-desc">
                             <?php
-                                    $tags = get_the_tags();
-                                    if ($tags) :
-                                        foreach ($tags as $tag) : ?>
+                                        $tags = get_the_terms(
+                                            $post->ID,
+                                            'tags'
+                                        );
+                                        if ($tags) :
+                                            foreach ($tags as $tag) :
+                                        ?>
                             <span><?php echo esc_html($tag->name); ?></span>
                             <?php endforeach; ?>
                             <?php endif; ?>

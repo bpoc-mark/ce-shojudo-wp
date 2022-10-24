@@ -4,17 +4,17 @@
             <a href="<?php echo get_home_url() ?>" title="HOME">HOME</a>
         </span>
         <?php
-        if (is_page('product')) {
+        if (is_archive('product')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">製品紹介</span>
                     ';
-        } elseif (is_page('technology')) {
+        } elseif (is_archive('technology')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">技術紹介</span>
                     ';
-        } elseif (is_page('digital')) {
+        } elseif (is_archive('digital')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">デジタル印刷紹介</span>
@@ -45,7 +45,7 @@
 
             $types_cat = '';
             $types_tag = '';
-            $products_cat = get_the_terms($post_id, 'goods_cat');
+            $products_cat = get_the_terms($post_id, '');
             if ($products_cat) {
                 sort($products_cat);
                 foreach ($products_cat as $product_cat) {
@@ -60,7 +60,7 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">' . $title . '</span>
                     ';
-        } elseif (is_tax('goods_cat')) {
+        } elseif (is_tax('')) {
             $trail     = '';
             $query_obj = get_queried_object();
             $term_id   = $query_obj->term_id;

@@ -51,25 +51,17 @@
                         <nav class="nav02">
                             <ul class="nav02--list">
                                 <li class="nav02--item">
-                                    <a href="<?php echo home_url('/'); ?>goods_cat/product"
+                                    <a href="<?php echo get_post_type_archive_link('product'); ?>"
                                         class=" nav02--link">製品紹介</a>
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
                                             <?php
                                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                         $args = [
-                                            'post_type' => 'goods',
+                                            'post_type' => 'product',
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
-                                            'tax_query' => array(
-                                                array(
-                                                    'field' => 'slug',
-                                                    'taxonomy' => 'goods_cat',
-                                                    'terms' => 'product',
-                                                    'hide_empty' => false,
-                                                ),
-                                            )
                                         ];
 
                                         $the_query = new WP_Query($args);
@@ -87,24 +79,17 @@
                                     </div>
                                 </li>
                                 <li class="nav02--item">
-                                    <a href="<?php echo home_url('/'); ?>goods_cat/technology"
+                                    <a href="<?php echo get_post_type_archive_link('technology'); ?>"
                                         class="nav02--link">技術紹介</a>
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
                                             <?php
                                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                         $args = [
-                                            'post_type' => 'goods',
+                                            'post_type' => 'technology',
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
-                                            'tax_query' => array(
-                                                array(
-                                                    'field' => 'slug',
-                                                    'taxonomy' => 'goods_cat',
-                                                    'terms' => 'technology'
-                                                ),
-                                            )
                                         ];
 
                                         $the_query = new WP_Query($args);
@@ -122,24 +107,17 @@
                                     </div>
                                 </li>
                                 <li class="nav02--item">
-                                    <a href="<?php echo home_url('/'); ?>goods_cat/digital"
+                                    <a href="<?php echo get_post_type_archive_link('digital'); ?>"
                                         class="nav02--link">デジタル印刷紹介</a>
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
                                             <?php
                                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                                         $args = [
-                                            'post_type' => 'goods',
+                                            'post_type' => 'digital',
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
-                                            'tax_query' => array(
-                                                array(
-                                                    'field' => 'slug',
-                                                    'taxonomy' => 'goods_cat',
-                                                    'terms' => 'digital'
-                                                ),
-                                            )
                                         ];
 
                                         $the_query = new WP_Query($args);
