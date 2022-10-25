@@ -54,11 +54,12 @@
                 $post_object = get_queried_object();
                 $title   = apply_filters( 'the_title', $post_object->post_title );
                 $post_id = $post_object->ID;
+                $link = get_post_type_archive_link('technology');
                 $types_cat = '';
                 $types_tag = '';
                 echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb"><a href="">技術紹介</a></span>
+                        <span class="aioseo-breadcrumb"><a href="'.$link.'">技術紹介</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">'.$title.'</span>
                     ';
@@ -67,11 +68,12 @@
                 $post_object = get_queried_object();
                 $title   = apply_filters( 'the_title', $post_object->post_title );
                 $post_id = $post_object->ID;
+                $link = get_post_type_archive_link('product');
                 $types_cat = '';
                 $types_tag = '';
                 echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb"><a href="">製品紹介</a></span>
+                        <span class="aioseo-breadcrumb"><a href="'.$link.'">製品紹介</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">'.$title.'</span>
                     ';
@@ -80,11 +82,12 @@
                 $post_object = get_queried_object();
                 $title   = apply_filters( 'the_title', $post_object->post_title );
                 $post_id = $post_object->ID;
+                $link = get_post_type_archive_link('digital');
                 $types_cat = '';
                 $types_tag = '';
                 echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb"><a href="">デジタル印刷紹介</a></span>
+                        <span class="aioseo-breadcrumb"><a href="'.$link.'">デジタル印刷紹介</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">'.$title.'</span>
                     ';
