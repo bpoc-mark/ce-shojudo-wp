@@ -78,16 +78,10 @@
                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                         $args = array(
                             'post_type' => 'technology',
+                            'post_parent' =>  $post->ID,
                             'post_status' => 'publish',
                             'posts_per_page' => 6,
                             'paged' => $paged,
-                            'meta_query' => array(
-                                array(
-                                    'key' => 'post_on_technology_page',
-                                    'value' => '1',
-                                    'compare' => 'LIKE'
-                                )
-                            )
                         );
 
                         $the_query = new WP_Query($args);

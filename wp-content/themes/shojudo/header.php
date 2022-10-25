@@ -90,13 +90,7 @@
                                                 'post_status' => 'publish',
                                                 'posts_per_page' => -1,
                                                 'paged' => $paged,
-                                                'meta_query' => array(
-                                                    array(
-                                                        'key' => 'post_on_technology_page',
-                                                        'value' => '1',
-                                                        'compare' => 'NOT LIKE',
-                                                    )
-                                                )
+                                                'post_parent' => 0
                                             );
                                             $the_query = new WP_Query($args);
                                             ?>

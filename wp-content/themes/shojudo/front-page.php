@@ -115,8 +115,9 @@
                         $args = [
                             'post_type' => 'technology',
                             'post_status' => 'publish',
-                            'posts_per_page' => 12,
+                            'posts_per_page' => 4,
                             'paged' => $paged,
+                            'post_parent' => 0,
                         ];
 
                         $the_query = new WP_Query($args);
