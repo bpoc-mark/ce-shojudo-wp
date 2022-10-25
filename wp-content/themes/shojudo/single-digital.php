@@ -49,7 +49,7 @@
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
                 ?>
             <li class="single-cont__link-list--item">
-                <a href="">
+                <a href="<?php the_field('link_to_post');?>" target="_blank">
                     <div class="single-cont__link-list--item__image">
                         <?php
                                 if ($image_attributes != '') {
