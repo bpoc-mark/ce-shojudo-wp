@@ -30,12 +30,14 @@
             <ul class="single-cont__tech-issues--list">
                 <?php
                 $issues = get_field('issues');
-                if ($issues) {
-                    foreach ($issues as $issue) {
+                foreach($issues as $issue){
+                    if($issue != ''){
+                        echo '<li class="single-cont__tech-issues--list__item">'.$issue.'</li>';
+                    }else{
+                        echo '';
+                    }
+                }
                 ?>
-                <li class="single-cont__tech-issues--list__item"><?php echo $issue; ?></li>
-                <?php }
-                } ?>
             </ul>
             <p class="single-cont__tech-issues--list__ttl"><?php the_field('heading_issue'); ?></p>
             <p class="single-cont__tech-issues--list__content"><?php the_field('how_to_fix'); ?></p>
@@ -69,11 +71,30 @@
             <?php endif; ?>
         </ul>
         <div class="single-cont__processing">
-            <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
+            <h3 class="single-cont__heading">セキュリティ印刷・加工一覧</h3>
             <div class="boxes">
                 <ul class="single-cont__processing--content-list box--wrapper">
-                    <?php while (have_posts()) : the_post(); ?>
-                    <!-- <li class="single-cont__processing--content-list__item box--container">
+                    <?php
+                        $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                        $args = array(
+                            'post_type' => 'technology',
+                            'post_status' => 'publish',
+                            'posts_per_page' => 6,
+                            'paged' => $paged,
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'post_on_technology_page',
+                                    'value' => '1',
+                                    'compare' => 'LIKE'
+                                )
+                            )
+                        );
+
+                        $the_query = new WP_Query($args);
+                        ?>
+                    <?php if ($the_query->have_posts()) : ?>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <li class="single-cont__processing--content-list__item box--container">
                         <a href="<?php echo get_permalink(); ?>">
                             <figure>
                                 <?php
@@ -95,8 +116,9 @@
                                 <p><?php echo the_content(); ?></p>
                             </div>
                         </a>
-                    </li> -->
+                    </li>
                     <?php endwhile; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

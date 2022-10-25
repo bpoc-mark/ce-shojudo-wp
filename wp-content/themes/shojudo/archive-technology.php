@@ -9,7 +9,25 @@
                     昇寿堂の技術を詰め込んだ商品の一覧です。官庁様・企業様から一般の方まで広くご利用いただいております。<br>御社のご利用にあわせ、最適な商品をご提案いたします。お気軽にご相談ください。</p>
                 <div class="boxes">
                     <ul class="box--wrapper">
-                        <?php while (have_posts()) : the_post(); ?>
+                        <?php
+                        $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                        $args = array(
+                            'post_type' => 'technology',
+                            'post_status' => 'publish',
+                            'posts_per_page' => -1,
+                            'paged' => $paged,
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'post_on_technology_page',
+                                    'value' => '1',
+                                    'compare' => 'NOT LIKE',
+                                )
+                            )
+                        );
+                        $the_query = new WP_Query($args);
+                        ?>
+                        <?php if ($the_query->have_posts()) : ?>
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <li class="box--container">
                             <a href="<?php echo get_permalink(); ?>">
                                 <figure>
@@ -47,6 +65,7 @@
                             </a>
                         </li>
                         <?php endwhile; ?>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>

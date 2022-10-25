@@ -68,6 +68,20 @@
             <?php endforeach; ?>
             <?php endif; ?>
         </ul>
+        <div class="single-cont__process-link">
+            <?php
+                $link = get_field('process_link');
+                $img = get_template_directory_uri();
+                if($link != ''){
+                    echo '<a href="'.$link.'">
+                            <img src="'.$img.'/release/image/link-arrow.svg">
+                            <p>その他のセキュリティ印刷・加工はこちら</p>
+                          </a>';
+                }else{
+                    echo '';
+                }
+            ?>
+        </div>
         <div class="single-cont__post-container">
             <h3 class="single-cont__heading">関連商品</h3>
             <ul class="box--wrapper">

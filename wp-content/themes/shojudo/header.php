@@ -84,19 +84,23 @@
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
                                             <?php
-                                        $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-                                        $args = [
-                                            'post_type' => 'technology',
-                                            'post_status' => 'publish',
-                                            'posts_per_page' => -1,
-                                            'paged' => $paged,
-                                        ];
-
-                                        $the_query = new WP_Query($args);
-                                        ?>
-
+                                            $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                                            $args = array(
+                                                'post_type' => 'technology',
+                                                'post_status' => 'publish',
+                                                'posts_per_page' => -1,
+                                                'paged' => $paged,
+                                                'meta_query' => array(
+                                                    array(
+                                                        'key' => 'post_on_technology_page',
+                                                        'value' => '1',
+                                                        'compare' => 'NOT LIKE',
+                                                    )
+                                                )
+                                            );
+                                            $the_query = new WP_Query($args);
+                                            ?>
                                             <?php if ($the_query->have_posts()) : ?>
-
                                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                                             <li class="sub--menu--items"><a
                                                     href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>

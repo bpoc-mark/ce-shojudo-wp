@@ -72,7 +72,6 @@
                     <ul>
                         <?php
                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-
                         $args = array(
                             'post_type' => 'post',
                             'post_status' => 'publish',
@@ -83,11 +82,8 @@
 
                         $the_query = new WP_Query($args);
                         ?>
-
                         <?php if ($the_query->have_posts()) : ?>
-
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-
                         <?php
                                 $id = get_the_ID();
                                 ?>
@@ -101,11 +97,8 @@
                                 </figure>
                             </a>
                         </li>
-
                         <?php endwhile; ?>
-
                         <?php endif; ?>
-
                     </ul>
                 </div>
             </div>
@@ -120,15 +113,10 @@
                         <?php
                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                         $args = [
-                            'post_type' => 'goods',
+                            'post_type' => 'technology',
                             'post_status' => 'publish',
                             'posts_per_page' => 12,
                             'paged' => $paged,
-                            'tax_query' => array(array(
-                                'taxonomy' => 'goods_cat',
-                                'field' => 'slug',
-                                'terms' => 'technology'
-                            ))
                         ];
 
                         $the_query = new WP_Query($args);
@@ -140,7 +128,19 @@
                         <li class="box--container">
                             <a href="<?php echo get_permalink(); ?>">
                                 <figure class="white--border">
-                                    <?php echo the_post_thumbnail(); ?>
+                                    <?php
+                                            $file = get_field('banner');
+                                            $default_img = get_template_directory_uri();
+
+                                            if ($file['type'] == 'image') {
+                                                $img = $file['sizes']['medium_large'];
+                                                echo '<img src="' . $img . '">';
+                                            } elseif ($file) {
+                                                echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                            } else {
+                                                echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                            }
+                                            ?>
                                 </figure>
                                 <h3 class="box--title"><?php echo the_title(); ?></h3>
                                 <div class="box--desc">
@@ -165,15 +165,10 @@
                         <?php
                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                         $args = [
-                            'post_type' => 'goods',
+                            'post_type' => 'product',
                             'post_status' => 'publish',
                             'posts_per_page' => 12,
                             'paged' => $paged,
-                            'tax_query' => array(array(
-                                'taxonomy' => 'goods_cat',
-                                'field' => 'slug',
-                                'terms' => 'product'
-                            ))
                         ];
 
                         $the_query = new WP_Query($args);
