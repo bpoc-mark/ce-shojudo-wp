@@ -5,12 +5,11 @@
                     <nav class="f-nav">
                         <div class="nav--contact">
                             <div class="nav--contact__wrap">
-                                <a href="https://www.shojudo.co.jp/supprot/toiawase.html" target="_blank"
-                                    class="nav01--link">お問い合わせ</a>
-                            </div>
-                            <div class="nav--contact__wrap">
-                                <a href="https://www.shojudo.co.jp/supprot/omitumori.html" target="_blank"
-                                    class="nav02--link">お見積もり</a>
+                                <a class="nav01--link" href="https://www.shojudo.co.jp/supprot/toiawase.html"
+                                    target="_blank">お問い合わせ
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
+                                        alt="white_arrow" />
+                                </a>
                             </div>
                         </div>
                         <div class="f-nav--wrap">
@@ -54,6 +53,7 @@
                                     'post_status' => 'publish',
                                     'posts_per_page' => -1,
                                     'paged' => $paged,
+                                    'post_parent' =>  0,
                                 ];
 
                                 $the_query = new WP_Query($args);
@@ -96,6 +96,7 @@
                                 <?php endif; ?>
                             </ul>
                         </div>
+
                         <div class="f-nav--wrap">
                             <h4 class="f-nav--wrap__title">その他</h4>
                             <ul class="f-nav--list">

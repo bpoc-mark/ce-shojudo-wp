@@ -330,6 +330,7 @@ footer {
 				.f-nav {
 					opacity: 1;
 					visibility: visible;
+					overflow-x: hidden;
 				}
 			}
 		}
@@ -374,16 +375,19 @@ footer {
 				&__wrap {
 					background-color: #0035ad;
 					border-radius: 10px;
-					width: 130px;
+					width: 200px;
 					text-align: center;
 					padding: 10px 0;
-					&:first-child {
-						margin-right: 20px;
-					}
 					a {
 						color: #fff;
+						display: flex;
+						align-items: center;
 						font-size: 18px;
 						width: 100%;
+						justify-content: center;
+						img {
+							margin-left: 20px;
+						}
 					}
 				}
 			}
@@ -391,9 +395,7 @@ footer {
 				&:nth-child(2) {
 					width: 100%;
 					@include is-max(999px) {
-						border-bottom: 1px solid #cccccc;
 						margin-bottom: 15px;
-						padding-bottom: 6px;
 					}
 					@include is-min(1000px) {
 						width: 40%;
@@ -401,19 +403,19 @@ footer {
 					.f-nav--list-wrap {
 						display: flex;
 						flex-wrap: wrap;
+						@include is-max(999px) {
+							border-bottom: 1px solid #cccccc;
+						}
 						.f-nav--list {
 							width: 100%;
 							display: flex;
 							flex-wrap: wrap;
 							.f-nav--item {
 								width: calc(100% / 2);
-							}
-							&:nth-child(1) {
-								.f-nav--item {
-									&:nth-child(5) {
-										@include is-max(999px) {
-											padding-bottom: 34px;
-										}
+								&:last-child,
+								&:nth-last-of-type(2) {
+									&::after {
+										display: none;
 									}
 								}
 							}
@@ -430,29 +432,45 @@ footer {
 					}
 				}
 				&:nth-child(3) {
-					width: 50%;
+					width: 49%;
 					@include is-min(1000px) {
 						width: 20%;
 					}
 					.f-nav--list {
-						&:nth-child(2) {
-							@include is-max(999px) {
-								.f-nav--item {
-									&:nth-child(1) {
-										padding-bottom: 34px;
-									}
-									&:nth-child(2) {
-										padding-bottom: 34px;
-									}
+						.f-nav--item {
+							@include is-max(767px) {
+								&::after {
+									content: "";
+									border-bottom: 1px dotted #cccccc;
+									height: 1px;
+									width: 100%;
+									position: absolute;
+									left: 0;
+									bottom: 0;
+								}
+							}
+
+							&:last-child {
+								&::after {
+									display: none;
 								}
 							}
 						}
 					}
 				}
 				&:nth-child(4) {
-					width: 50%;
+					width: 49%;
 					@include is-min(1000px) {
 						width: 25%;
+					}
+					.f-nav--list {
+						.f-nav--item {
+							&:last-child {
+								&::after {
+									display: none;
+								}
+							}
+						}
 					}
 				}
 				&:nth-child(5) {
@@ -479,16 +497,37 @@ footer {
 									order: 5;
 								}
 								&:nth-child(4) {
-									order: 2;
+									order: 7;
 								}
 								&:nth-child(5) {
-									order: 7;
+									order: 2;
+									&::after {
+										content: "";
+										border-bottom: 1px dotted #cccccc;
+										height: 1px;
+										width: 100%;
+										position: absolute;
+										left: 0;
+										bottom: 0;
+									}
 								}
 								&:nth-child(6) {
 									order: 4;
 								}
 								&:nth-child(7) {
 									order: 6;
+									&::after {
+										content: "";
+										border-bottom: 1px dotted #cccccc;
+										height: 1px;
+										width: 100%;
+										position: absolute;
+										left: 0;
+										bottom: 0;
+									}
+								}
+								&:nth-child(8) {
+									order: 8;
 								}
 							}
 						}
@@ -506,16 +545,14 @@ footer {
 				&:not(:last-child) {
 					@include is-max(999px) {
 						.f-nav--item {
-							&:not(:last-child) {
-								&::after {
-									content: "";
-									border-bottom: 1px dotted #cccccc;
-									height: 1px;
-									width: 100%;
-									position: absolute;
-									left: 0;
-									bottom: 0;
-								}
+							&::after {
+								content: "";
+								border-bottom: 1px dotted #cccccc;
+								height: 1px;
+								width: 100%;
+								position: absolute;
+								left: 0;
+								bottom: 0;
 							}
 						}
 					}
@@ -534,9 +571,6 @@ footer {
 									bottom: 0;
 								}
 							}
-							&:last-child {
-								margin-bottom: 8px;
-							}
 						}
 					}
 				}
@@ -544,13 +578,16 @@ footer {
 			&--item {
 				position: relative;
 				@include is-max(999px) {
-					padding-bottom: 10px;
-				}
-				&:not(:last-child) {
-					@include is-max(999px) {
-						margin-bottom: 8px;
+					&:not(:last-child),
+					&:not(:nth-last-of-type(2)) {
+						padding-bottom: 10px;
 					}
 				}
+
+				@include is-max(999px) {
+					margin-bottom: 8px;
+				}
+
 				@include is-min(1000px) {
 					br {
 						display: none;
@@ -562,6 +599,7 @@ footer {
 				@include is-max(999px) {
 					font-size: 16px;
 					line-height: 22px;
+					// white-space: nowrap;
 				}
 				&:hover {
 					opacity: 0.6;

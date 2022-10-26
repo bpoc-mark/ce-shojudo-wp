@@ -79,6 +79,7 @@
 		&__content {
 			margin-top: 30px;
 			&--ttl {
+				color: #0035ad;
 				font-size: 25px;
 				font-weight: 700;
 			}
@@ -98,6 +99,9 @@
 							font-size: 12px;
 							font-weight: 500;
 							width: 124px;
+							@include is-max(767px) {
+								width: 80px;
+							}
 						}
 						&:last-child {
 							font-size: 15px;
