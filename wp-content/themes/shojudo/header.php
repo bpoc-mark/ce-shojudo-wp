@@ -143,7 +143,8 @@
                                         </ul>
                                         <ul class="sub--menu--wrap">
                                             <li class="sub--menu--items"><a
-                                                    href="https://www.shojudo.co.jp/company/office.html">事業所</a></li>
+                                                    href="<?php echo get_permalink(get_page_by_path('company-office'));?>">事業所</a>
+                                            </li>
                                         </ul>
                                         <ul class="sub--menu--wrap">
                                             <li class="sub--menu--items"><a
