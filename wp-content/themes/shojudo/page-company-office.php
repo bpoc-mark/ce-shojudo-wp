@@ -11,18 +11,27 @@
                 </div>
                 <div class="sect1__buttons">
                     <?php
-                        $text_link = ['本社（総務・経理）','営業部・深川工場','水戸営業所','横浜出張所','千葉出張所','北関東出張所','藤沢出張所','昇寿チャート'];
+                        $text_link = [
+                            ['#1','本社（総務・経理）'],
+                            ['#2','営業部・深川工場'],
+                            ['#3','水戸営業所'],
+                            ['#4','横浜出張所'],
+                            ['#5','千葉出張所'],
+                            ['#6','北関東出張所'],
+                            ['#7','藤沢出張所'],
+                            ['#8','昇寿チャート']
+                            ];
 
                         foreach($text_link as $text):
                     ?>
-                    <a href="" class="sect1__buttons--link">
-                        <p><?php echo $text?></p>
+                    <a href="<?php echo $text[0];?>" class="sect1__buttons--link">
+                        <p><?php echo $text[1];?></p>
                         <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
                             alt="white_arrow" />
                     </a>
                     <?php endforeach; ?>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="1">
                     <h2 class="sect1__content--ttl">本社 （総務・経理）</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -49,7 +58,7 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="2">
                     <h2 class="sect1__content--ttl">営業部・深川工場</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -78,7 +87,7 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="3">
                     <h2 class="sect1__content--ttl">水戸営業所</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -104,7 +113,7 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="4">
                     <h2 class="sect1__content--ttl">横浜出張所</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -121,7 +130,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="5">
                     <h2 class="sect1__content--ttl">千葉出張所</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -138,7 +147,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="6">
                     <h2 class="sect1__content--ttl">北関東出張所</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -155,7 +164,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="7">
                     <h2 class="sect1__content--ttl">藤沢出張所</h2>
                     <table class="sect1__content--table">
                         <tr>
@@ -172,7 +181,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="sect1__content">
+                <div class="sect1__content" id="8">
                     <h2 class="sect1__content--ttl">昇寿チャート株式会社（系列オフセット印刷部門）</h2>
                     <table class="sect1__content--table">
                         <tr>
