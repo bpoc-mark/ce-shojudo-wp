@@ -255,11 +255,13 @@
 								img,
 								video {
 									min-height: 180px;
-									max-width: 264px;
 									width: 100%;
 									height: 100%;
 									object-fit: cover;
 									border-radius: 5px;
+									@include is-min(767px) {
+										max-width: 264px;
+									}
 								}
 							}
 						}

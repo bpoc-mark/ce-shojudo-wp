@@ -199,6 +199,9 @@
 				display: flex;
 				justify-content: space-between;
 				margin: 16px 0 20px;
+				@include is-max(767px) {
+					flex-direction: column;
+				}
 				&__item {
 					color: #0034a9;
 					background-color: #ecf0fa;
@@ -207,8 +210,14 @@
 					font-weight: 500;
 					line-height: 26px;
 					padding: 30px 15px;
-					&:not(:last-child) {
-						margin-right: 60px;
+					@include is-min(767px) {
+						&:not(:last-child) {
+							margin-right: 60px;
+						}
+					}
+					@include is-max(767px) {
+						margin-right: 0;
+						margin-bottom: 30px;
 					}
 				}
 				&__ttl {
