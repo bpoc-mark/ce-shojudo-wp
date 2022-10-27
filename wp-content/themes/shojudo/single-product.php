@@ -8,19 +8,11 @@
         <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
         <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
         <div class="single-cont__featured-img">
-            <?php
-                $file = get_field('banner');
-                $default_img = get_template_directory_uri();
-
-                if ($file['type'] == 'image') {
-                    $img = $file['sizes']['medium_large'];
-                    echo '<img src="' . $img . '">';
-                } elseif ($file) {
-                    echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                } else {
-                    echo '<img src="' . $default_img . '/release/image/default_img.png">';
-                }
-                ?>
+            <?php if ( has_post_thumbnail() ) {
+                the_post_thumbnail();
+                } else { ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/release/image/default_img.png" />
+            <?php } ?>
         </div>
         <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>

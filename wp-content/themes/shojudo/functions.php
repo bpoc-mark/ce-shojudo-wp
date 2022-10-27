@@ -68,5 +68,5 @@ function cptui_register_my_cpts_banner()
 }
 add_action('init', 'cptui_register_my_cpts_banner');
 
-add_theme_support('post-thumbnails', array('banner'));
+add_theme_support('post-thumbnails', array('banner','product','technology','digital'));
 add_image_size('banner-feature', 450, 300, true);

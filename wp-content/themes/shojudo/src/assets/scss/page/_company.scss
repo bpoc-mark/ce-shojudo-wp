@@ -170,6 +170,112 @@
 				}
 			}
 		}
+		&__company-content {
+			margin-top: 30px;
+			&--ttl {
+				color: #0035ad;
+				font-size: 25px;
+				font-weight: 700;
+			}
+			&--list {
+				display: flex;
+				justify-content: flex-start;
+				margin-top: 28px;
+				flex-wrap: wrap;
+				&__item {
+					background-color: #ecf0fa;
+					padding: 20px 30px;
+					margin-bottom: 43px;
+					line-height: 18px;
+					width: 100%;
+					@include is-min(767px) {
+						width: 270px;
+					}
+					&:not(:nth-child(3)) {
+						margin-right: 45px;
+						@include is-max(767px) {
+							margin-right: 0;
+						}
+					}
+					&:first-child {
+						.main {
+							&:first-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+					&:nth-child(2) {
+						li {
+							&:last-child {
+								list-style-image: none;
+							}
+						}
+					}
+					.main {
+						margin-bottom: 20px;
+					}
+					li {
+						padding-bottom: 7px;
+						display: flex;
+						align-items: flex-start;
+						img {
+							margin-top: 3px;
+							margin-right: 10px;
+						}
+						span {
+							margin-right: 10px;
+							display: flex;
+						}
+					}
+
+					.title {
+						color: #0034a9;
+						font-size: 18px;
+						font-weight: 500;
+					}
+				}
+			}
+			&--table {
+				width: 100%;
+				display: block;
+				tr {
+					display: inline-flex;
+					padding: 30px 0;
+					border-bottom: 1px solid #cccccc;
+					width: 100%;
+					flex-wrap: wrap;
+					td {
+						font-size: 15px;
+						font-weight: 500;
+						letter-spacing: 0.5px;
+						line-height: 21px;
+						&:first-child {
+							color: #939393;
+							width: 124px;
+						}
+						&:last-child {
+							display: flex;
+							@include is-max(767px) {
+								margin-top: 20px;
+								flex-wrap: wrap;
+							}
+							ul {
+								&:first-child {
+									margin-right: 10vw;
+									@include is-max(767px) {
+										margin-right: 0;
+									}
+								}
+								li,
+								p {
+									margin-bottom: 10px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	.sect2 {
