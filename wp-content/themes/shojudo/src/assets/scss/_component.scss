@@ -225,6 +225,12 @@ img {
 						cursor: pointer;
 						&:hover {
 							opacity: 0.6;
+							a {
+								img {
+									right: -5px;
+									position: relative;
+								}
+							}
 						}
 						@include is-min(1000px) {
 							display: flex;

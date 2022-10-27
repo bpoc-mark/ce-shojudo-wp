@@ -19,22 +19,22 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">デジタル印刷紹介</span>
                     ';
-        } elseif (is_page('company-careers')) {
+        } elseif (is_page('careers')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">採用情報</span>
                     ';
-        } elseif (is_page('company')) {
+        } elseif (is_page('history')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb">会社案内</span>
+                        <span class="aioseo-breadcrumb"><a href="/company">会社案内</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">沿革</span>
                     ';
-        } elseif (is_page('company-office')) {
+        } elseif (is_page('office')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb">会社案内</span>
+                        <span class="aioseo-breadcrumb"><a href="/company">会社案内</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">事業所</span>
                     ';

@@ -134,26 +134,29 @@
                                 </li>
 
                                 <li class="nav02--item">
-                                    <a href="https://www.shojudo.co.jp/company/index.html" class="nav02--link">会社案内</a>
+                                    <a href="<?php echo get_permalink(get_page_by_path('company'));?>"
+                                        class="nav02--link">会社案内</a>
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
                                             <li class="sub--menu--items"><a
-                                                    href="<?php echo get_permalink(get_page_by_path('/company')); ?>">沿革</a>
+                                                    href="<?php echo get_permalink(get_page_by_path('company/history')); ?>">沿革</a>
                                             </li>
                                         </ul>
                                         <ul class="sub--menu--wrap">
                                             <li class="sub--menu--items"><a
-                                                    href="<?php echo get_permalink(get_page_by_path('company-office'));?>">事業所</a>
+                                                    href="<?php echo get_permalink(get_page_by_path('company/office'));?>">事業所</a>
                                             </li>
                                         </ul>
                                         <ul class="sub--menu--wrap">
                                             <li class="sub--menu--items"><a
-                                                    href="https://www.shojudo.co.jp/csr/index.html">CSR</a></li>
+                                                    href="<?php echo get_permalink(get_page_by_path('csr'));?>">CSR</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="nav02--item">
-                                    <a href="<?php echo home_url('/'); ?>company-careers" class="nav02--link">採用情報</a>
+                                    <a href="<?php echo get_permalink(get_page_by_path('company/careers')); ?>"
+                                        class="nav02--link">採用情報</a>
                                 </li>
                                 <li class="nav01--item"
                                     onclick="location.href='https://www.shojudo.co.jp/supprot/toiawase.html';">
