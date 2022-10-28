@@ -1,0 +1,218 @@
+#CSR {
+	padding-top: 185px;
+	margin-top: -90px;
+
+	.sect1 {
+		margin-top: 40px;
+		.container {
+			max-width: 950px;
+			padding: 0 25px;
+			margin: 0 auto 60px;
+		}
+		&__csr-container {
+			&:nth-child(2) {
+				margin: 35px 0 60px;
+			}
+			&:nth-child(3) {
+				margin-bottom: 100px;
+			}
+			&:nth-child(4) {
+				margin-bottom: 0;
+			}
+			&__title {
+				color: #0035ad;
+				font-size: 25px;
+				font-weight: 700;
+			}
+			&__content {
+				align-items: flex-start;
+				margin-top: 20px;
+				@include is-min(767px) {
+					display: flex;
+				}
+				&--row1 {
+					@include is-min(767px) {
+						width: 135px;
+						margin-right: 50px;
+					}
+					img {
+						@include is-max(767px) {
+							margin: 0 auto;
+							display: block;
+						}
+					}
+				}
+				&--row2 {
+					@include is-min(767px) {
+						width: calc(100% - 185px);
+					}
+					@include is-max(767px) {
+						margin-top: 30px;
+					}
+					.title {
+						font-size: 18px;
+						font-weight: 500;
+						line-height: 26px;
+						margin-bottom: 20px;
+					}
+					.content {
+						font-size: 15px;
+						font-weight: 500;
+						letter-spacing: 0.5px;
+						line-height: 21px;
+						margin-bottom: 20px;
+					}
+					.table {
+						width: 100%;
+						display: block;
+						tr {
+							width: 100%;
+							margin-bottom: 10px;
+							td {
+								font-size: 15px;
+								font-weight: 500;
+								&:first-child {
+									width: 96px;
+									margin-right: 20px;
+									display: block;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&__csr-policy {
+			margin-top: 20px;
+			.title {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 26px;
+				margin-bottom: 20px;
+			}
+			.sub {
+				font-size: 15px;
+				font-weight: 500;
+				letter-spacing: 0.5px;
+				line-height: 21px;
+			}
+			.list {
+				margin-top: 20px;
+				font-size: 15px;
+				font-weight: 500;
+				li {
+					display: flex;
+					margin-bottom: 10px;
+					p {
+						letter-spacing: 0.5px;
+						line-height: 20px;
+					}
+				}
+				span {
+					margin-right: 15px;
+					display: inline-block;
+				}
+			}
+		}
+	}
+	.sect2 {
+		background-color: #ecf0fa;
+		.wrapper {
+			.container {
+				padding-top: 30px;
+				padding-bottom: 10px;
+				text-align: center;
+				@include is-min(1000px) {
+					padding-top: 50px;
+					padding-bottom: 50px;
+				}
+				p {
+					font-size: 15px;
+				}
+				.contact-us {
+					padding-top: 10px;
+					padding-bottom: 5px;
+					@include is-min(1000px) {
+						padding-top: 30px;
+						padding-bottom: 20px;
+						br {
+							display: none;
+						}
+					}
+
+					&--small {
+						@include is-min(1000px) {
+							padding-bottom: 10px;
+						}
+					}
+				}
+				h3 {
+					font-size: 45px;
+					a {
+						color: #0035ad;
+					}
+				}
+				.sect2--btn {
+					margin: 0 auto;
+					padding: 20px 0;
+					@include is-min(1000px) {
+						max-width: 729px;
+					}
+					ul {
+						@include is-min(1000px) {
+							display: flex;
+							justify-content: center;
+							margin: 0 -10px;
+						}
+						li {
+							border-radius: 10px;
+							background-color: #0035ad;
+							padding-top: 10px;
+							padding-bottom: 10px;
+							margin: 8px auto;
+							position: relative;
+							justify-content: center;
+							cursor: pointer;
+							&:hover {
+								opacity: 0.6;
+								a {
+									img {
+										right: -5px;
+										position: relative;
+									}
+								}
+							}
+							@include is-min(1000px) {
+								display: flex;
+								align-items: center;
+								width: calc(100% / 3);
+								padding: 20px 20px;
+								margin: 0 10px;
+							}
+							@include is-min(769px) {
+								max-width: 729px;
+							}
+							a {
+								color: #ffff;
+								font-size: 20px;
+								font-weight: 700;
+								text-align: left;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								@include is-max(999px) {
+									br {
+										display: none;
+									}
+								}
+								figure {
+									margin-left: 15px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

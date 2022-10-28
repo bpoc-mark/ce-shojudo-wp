@@ -92,7 +92,12 @@
                         <span class="aioseo-breadcrumb">'.$title.'</span>
                     ';
 
-            }
+            }elseif (is_page('csr')) {
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">CSR</span>
+                    ';
+        }
         ?>
     </div>
 </ul>
