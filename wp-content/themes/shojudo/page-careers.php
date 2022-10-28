@@ -22,24 +22,7 @@
                 <div class="sect2--btn">
                     <ul>
                         <li onclick="location.href='';">
-                            <a href="">
-                                お問い合わせ 法人
-                                <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
-                                </figure>
-                            </a>
-                        </li>
-                        <li onclick="location.href='';">
-                            <a href="">お問い合わせ 個人
-                                <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
-                                </figure>
-                            </a>
-                        </li>
-                        <li onclick="location.href='';">
-                            <a href="">お見積り
+                            <a href="">お問い合わせ
                                 <figure>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
                                         alt="white_arrow" />
