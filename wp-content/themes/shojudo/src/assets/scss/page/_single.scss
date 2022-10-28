@@ -152,14 +152,15 @@
 				a {
 					display: flex;
 					align-items: flex-start;
+					overflow: hidden;
 					@include is-max(767px) {
 						flex-direction: column;
 					}
 				}
 				&__image {
-					height: 176px;
 					@include is-min(767px) {
 						width: 220px;
+						max-height: 220px;
 						margin-right: 30px;
 					}
 					@include is-max(767px) {
@@ -167,28 +168,22 @@
 						height: unset;
 						margin-bottom: 30px;
 					}
-					img {
-						width: 100%;
-						height: 100%;
-						object-fit: cover;
-						object-position: top;
-					}
 				}
 				&__content {
 					@include is-min(767px) {
-						width: calc(100% - 250px);
+						max-width: 650px;
 					}
 					.title {
 						font-size: 18px;
 						font-weight: 500;
-						letter-spacing: 0.5px;
+						letter-spacing: 1px;
 						text-decoration: underline;
 						text-underline-offset: 3px;
 					}
 					.content {
 						font-size: 15px;
 						font-weight: 500;
-						letter-spacing: 0.5px;
+						letter-spacing: 1px;
 						margin-top: 20px;
 					}
 				}
