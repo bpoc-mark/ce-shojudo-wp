@@ -93,9 +93,19 @@
                     ';
 
             }elseif (is_page('csr')) {
-            echo '
+                    echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">CSR</span>
+                    ';
+        }elseif(is_page('privacypolicy')){
+                    echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">個人情報保護方針</span>
+                    ';
+        }elseif(is_page('thanks')){
+                    echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">お問い合わせ</span>
                     ';
         }
         ?>
