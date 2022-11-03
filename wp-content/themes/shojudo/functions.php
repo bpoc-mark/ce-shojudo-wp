@@ -77,7 +77,7 @@ function redirect_cf7()
 ?>
 <script type="text/javascript">
 document.addEventListener('wpcf7mailsent', function(event) {
-    location = 'https://shojudo.com/thanks';
+    location = 'https://shojudo.com/thankyou';
 }, false);
 </script>
 <?php

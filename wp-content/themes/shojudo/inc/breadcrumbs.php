@@ -102,12 +102,12 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">個人情報保護方針</span>
                     ';
-        }elseif(is_page('thanks')){
+        }elseif(is_page('thankyou')){
                     echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">お問い合わせ</span>
                     ';
-        }elseif(is_page('contact')){
+        }elseif(is_page('toiawase')){
                     echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">お問い合わせ</span>
