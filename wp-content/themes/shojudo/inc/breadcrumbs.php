@@ -107,6 +107,11 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">お問い合わせ</span>
                     ';
+        }elseif(is_page('contact')){
+                    echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">お問い合わせ</span>
+                    ';
         }
         ?>
     </div>

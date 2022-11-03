@@ -70,3 +70,15 @@ add_action('init', 'cptui_register_my_cpts_banner');
 
 add_theme_support('post-thumbnails', array('banner','product','technology','digital'));
 add_image_size('banner-feature', 450, 300, true);
+
+
+function redirect_cf7()
+{
+?>
+<script type="text/javascript">
+document.addEventListener('wpcf7mailsent', function(event) {
+    location = 'https://shojudo.com/thanks';
+}, false);
+</script>
+<?php
+}

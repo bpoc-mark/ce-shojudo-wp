@@ -84,6 +84,8 @@
                     'post_status' => 'publish',
                     'posts_per_page' => 3,
                     'paged' => $paged,
+                    'post__not_in' => array($post->ID),
+                    'post_parent' => 0
                 ];
 
                 $the_query = new WP_Query($args);
