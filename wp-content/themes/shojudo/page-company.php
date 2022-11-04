@@ -167,7 +167,6 @@
                                         <img src="<?php echo get_template_directory_uri();?>/release/image/common/blue_arrow.svg"
                                             alt="">
                                         <a href="<?php echo $list[0];?>"><?php echo $list[1];?></a>
-
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
