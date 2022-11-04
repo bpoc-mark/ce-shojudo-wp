@@ -75,39 +75,54 @@
 						}
 					}
 				}
-			}
-
-			.submit-btn {
-				background-color: #0035ad;
-				border-radius: 7px;
-				color: #ffff;
-				border: none;
-				width: 180px;
-				padding: 16px 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				cursor: pointer;
-				input[type="submit"] {
-					border: none;
-					background: none;
-					color: #ffff;
-					font-size: 18px;
-					font-weight: 700;
-					letter-spacing: 0.5px;
-					line-height: 25px;
-					margin-right: 28px;
-					cursor: pointer;
-				}
-				img {
-					height: 15px;
+				.wpcf7-acceptance {
+					margin-right: 10px;
 				}
 				.wpcf7-spinner {
 					display: none !important;
 				}
 			}
+			.wpcf7-submit {
+				background-color: #0035ad;
+				border-radius: 7px;
+				color: #ffff;
+				border: none;
+				width: 180px;
+				padding: 16px 50px;
+				display: flex;
+				align-items: center;
+				font-size: 20px;
+				font-weight: 700;
+				position: relative;
+				cursor: pointer;
+				img {
+					height: 15px;
+				}
+				&:disabled {
+					opacity: 0.6;
+					cursor: inherit;
+				}
+			}
 			.check {
 				margin-bottom: 30px;
+				span {
+					display: inline-flex;
+				}
+			}
+			.arrow {
+				position: relative;
+				&::after {
+					content: url("../../release/image/common/white_arrow.svg");
+					position: absolute;
+					top: 50%;
+					right: 50px;
+					width: 15px;
+					height: 20px;
+					transform: translate(0%, -50%);
+				}
+			}
+			.wpcf7-response-output {
+				display: none !important;
 			}
 		}
 	}

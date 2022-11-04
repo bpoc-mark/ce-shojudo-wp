@@ -33,6 +33,15 @@
 				font-weight: 700;
 				margin: 30px 0 20px;
 			}
+			&--purpose {
+				margin-bottom: 20px;
+				li {
+					&:nth-child(even) {
+						margin-left: 10px;
+					}
+					margin-bottom: 5px;
+				}
+			}
 		}
 	}
 	.sect2 {

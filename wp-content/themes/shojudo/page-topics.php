@@ -13,7 +13,7 @@ get_header();?>
                         <h2 class="sect--title">ニュース</h2>
                     </div>
                     <ul>
-                    <?php
+                        <?php
                         $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
                         $args = array(
                             'post_type' => 'post',
@@ -24,8 +24,8 @@ get_header();?>
                         );
                         $the_query = new WP_Query($args);
                     ?>
-                    <?php if ( $the_query->have_posts() ) : ?>
-                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <?php if ( $the_query->have_posts() ) : ?>
+                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                         <li id="<?php echo get_the_ID();?>">
                             <span><?php echo get_the_date('Y/m/d'); ?></span>
                             <div class="topics--right">
@@ -33,10 +33,10 @@ get_header();?>
                                 <p><?php the_content();?></p>
                             </div>
                         </li>
-                    <?php endwhile; ?>
-                    <?php echo wp_pagenavi(array('query' => $the_query)); ?>
-                    <?php endif; ?>
-                    </ul> 
+                        <?php endwhile; ?>
+                        <?php echo wp_pagenavi(array('query' => $the_query)); ?>
+                        <?php endif; ?>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -51,24 +51,10 @@ get_header();?>
                 <div class="sect2--btn">
                     <ul>
                         <li onclick="location.href='';">
-                            <a href="">
-                            お問い合わせ 法人
-                            <figure>
-                            <img src="<?php echo get_template_directory_uri();?>/release/image/common/white_arrow.svg" alt="white_arrow" /> 
-                            </figure>
-                            </a>
-                        </li>
-                        <li onclick="location.href='';">
-                            <a href="">お問い合わせ 個人
-                            <figure>
-                            <img src="<?php echo get_template_directory_uri();?>/release/image/common/white_arrow.svg" alt="white_arrow" /> 
-                            </figure>
-                            </a>
-                        </li>
-                        <li onclick="location.href='';">
-                            <a href="">お見積り
+                            <a href="">お問い合わせ
                                 <figure>
-                                <img src="<?php echo get_template_directory_uri();?>/release/image/common/white_arrow.svg" alt="white_arrow" /> 
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
+                                        alt="white_arrow" />
                                 </figure>
                             </a>
                         </li>

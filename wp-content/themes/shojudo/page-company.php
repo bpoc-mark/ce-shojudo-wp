@@ -119,8 +119,6 @@
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
-                                <img src="<?php echo get_template_directory_uri();?>/release/image/common/blue_arrow.svg"
-                                    alt="">
                                 <a href="" class="title">その他</a>
                             </li>
                             <?php
@@ -152,16 +150,24 @@
                         </tr>
                         <tr>
                             <td>工場・支所</td>
-                            <td>
+                            <td class="sect1__company-content--table__with_link">
                                 <ul>
                                     <?php
-                                        $lists = ['深川工場（営業部）','水戸営業所','横浜出張所','千葉出張所','北関東出張所','藤沢出張所'];
+                                        $lists = [
+                                            ['office/#2','深川工場（営業部）'],
+                                            ['office/#3','水戸営業所'],
+                                            ['office/#4','横浜出張所'],
+                                            ['office/#5','千葉出張所'],
+                                            ['office/#6','北関東出張所'],
+                                            ['office/#7','藤沢出張所']
+                                        ];
                                         foreach($lists as $list):
                                     ?>
                                     <li>
                                         <img src="<?php echo get_template_directory_uri();?>/release/image/common/blue_arrow.svg"
                                             alt="">
-                                        <?php echo $list;?>
+                                        <a href="<?php echo $list[0];?>"><?php echo $list[1];?></a>
+
                                     </li>
                                     <?php endforeach; ?>
                                 </ul>
@@ -193,22 +199,22 @@
                             <td>従業員数</td>
                             <td>
                                 <ul>
-                                    <li>・ビジネスフォームおよび記録計用紙印刷機</li>
-                                    <li>・長尺印刷機</li>
-                                    <li>・フォームラベラー機</li>
-                                    <li>・ホログラムおよびスクラッチ加工機<br>（連続およびシート）</li>
-                                    <li>・フォームダイカッター</li>
-                                    <li>・全自動枚葉オフセット印刷機</li>
-                                    <li>・UVインクジェット印刷機</li>
+                                    <li><span>・</span>ビジネスフォームおよび記録計用紙印刷機</li>
+                                    <li><span>・</span>長尺印刷機</li>
+                                    <li><span>・</span>フォームラベラー機</li>
+                                    <li><span>・</span>ホログラムおよびスクラッチ加工機<br>（連続およびシート）</li>
+                                    <li><span>・</span>フォームダイカッター</li>
+                                    <li><span>・</span>全自動枚葉オフセット印刷機</li>
+                                    <li><span>・</span>UVインクジェット印刷機</li>
                                 </ul>
                                 <ul>
-                                    <li>・デジタルプレス機</li>
-                                    <li>・偽造防止用画像編集ソフト</li>
-                                    <li>・精密断裁機</li>
-                                    <li>・その他仕上設備</li>
-                                    <li>・CAD製図機</li>
-                                    <li>・殖版機</li>
-                                    <li>・CTP製版設備<br>その他付帯設備</li>
+                                    <li><span>・</span>デジタルプレス機</li>
+                                    <li><span>・</span>偽造防止用画像編集ソフト</li>
+                                    <li><span>・</span>精密断裁機</li>
+                                    <li><span>・</span>その他仕上設備</li>
+                                    <li><span>・</span>CAD製図機</li>
+                                    <li><span>・</span>殖版機</li>
+                                    <li><span>・</span>CTP製版設備<br>その他付帯設備</li>
                                 </ul>
                             </td>
                         </tr>
@@ -216,10 +222,10 @@
                             <td>取引銀行<br>(順不同)</td>
                             <td>
                                 <ul>
-                                    <li>・みずほ銀行　銀座中央支店</li>
-                                    <li>・三井住友銀行　東京中央支店</li>
-                                    <li>・りそな銀行　東京中央支店</li>
-                                    <li>・きらぼし銀行　日本橋支店</li>
+                                    <li><span>・</span>みずほ銀行　銀座中央支店</li>
+                                    <li><span>・</span>三井住友銀行　東京中央支店</li>
+                                    <li><span>・</span>りそな銀行　東京中央支店</li>
+                                    <li><span>・</span>きらぼし銀行　日本橋支店</li>
                                 </ul>
                             </td>
                         </tr>
@@ -228,35 +234,35 @@
                             <td>
                                 <ul>
                                     <p>諸会社</p>
-                                    <li>・株式会社日立製作所各事業所</li>
-                                    <li>・日立製作所関連会社</li>
-                                    <li>・青山学院大学および各大学</li>
-                                    <li>・東京女子医科大学病院</li>
-                                    <li>・信越化学工業株式会社</li>
-                                    <li>・AGS株式会社</li>
-                                    <li>・株式会社電通テック</li>
-                                    <li>・株式会社茨城計算センター</li>
-                                    <li>・東日本旅客鉄道株式会社</li>
-                                    <li>・西日本旅客鉄道株式会社</li>
-                                    <li>・東武鉄道株式会社</li>
-                                    <li>・小田急電鉄株式会社</li>
-                                    <li>・西武鉄道株式会社</li>
-                                    <li>・京成電鉄株式会社</li>
-                                    <li>・東京急行電鉄株式会社</li>
-                                    <li>・京浜急行電鉄株式会社</li>
-                                    <li>・相模鉄道株式会社</li>
-                                    <li>・首都圏新都市鉄道株式会社</li>
-                                    <li>・東京地下鉄株式会社</li>
+                                    <li><span>・</span>株式会社日立製作所各事業所</li>
+                                    <li><span>・</span>日立製作所関連会社</li>
+                                    <li><span>・</span>青山学院大学および各大学</li>
+                                    <li><span>・</span>東京女子医科大学病院</li>
+                                    <li><span>・</span>信越化学工業株式会社</li>
+                                    <li><span>・</span>AGS株式会社</li>
+                                    <li><span>・</span>株式会社電通テック</li>
+                                    <li><span>・</span>株式会社茨城計算センター</li>
+                                    <li><span>・</span>東日本旅客鉄道株式会社</li>
+                                    <li><span>・</span>西日本旅客鉄道株式会社</li>
+                                    <li><span>・</span>東武鉄道株式会社</li>
+                                    <li><span>・</span>小田急電鉄株式会社</li>
+                                    <li><span>・</span>西武鉄道株式会社</li>
+                                    <li><span>・</span>京成電鉄株式会社</li>
+                                    <li><span>・</span>東京急行電鉄株式会社</li>
+                                    <li><span>・</span>京浜急行電鉄株式会社</li>
+                                    <li><span>・</span>相模鉄道株式会社</li>
+                                    <li><span>・</span>首都圏新都市鉄道株式会社</li>
+                                    <li><span>・</span>東京地下鉄株式会社</li>
                                 </ul>
                                 <ul>
                                     <p>官公庁</p>
-                                    <li>・独立行政法人都市再生機構</li>
-                                    <li>・東京都および東京23区役所</li>
-                                    <li>・茨城県および水戸市等自治体</li>
-                                    <li>・千葉県および千葉市等自治体</li>
-                                    <li>・神奈川県および横浜市等自治体</li>
-                                    <li>・埼玉県およびさいたま市等自治体</li>
-                                    <li>・各中央官庁</li>
+                                    <li><span>・</span>独立行政法人都市再生機構</li>
+                                    <li><span>・</span>東京都および東京23区役所</li>
+                                    <li><span>・</span>茨城県および水戸市等自治体</li>
+                                    <li><span>・</span>千葉県および千葉市等自治体</li>
+                                    <li><span>・</span>神奈川県および横浜市等自治体</li>
+                                    <li><span>・</span>埼玉県およびさいたま市等自治体</li>
+                                    <li><span>・</span>各中央官庁</li>
                                 </ul>
                             </td>
                         </tr>
@@ -264,8 +270,8 @@
                             <td>主な仕入れ先<br>(順不同)</td>
                             <td>
                                 <ul>
-                                    <li>・株式会社共同紙販ホールディングス</li>
-                                    <li>・吉川紙商事株式会社</li>
+                                    <li><span>・</span>株式会社共同紙販ホールディングス</li>
+                                    <li><span>・</span>吉川紙商事株式会社</li>
                                 </ul>
                             </td>
                         </tr>

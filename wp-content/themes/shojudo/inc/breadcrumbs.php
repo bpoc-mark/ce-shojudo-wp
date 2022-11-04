@@ -112,6 +112,11 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">お問い合わせ</span>
                     ';
+        }elseif(is_page('company')){
+                    echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">会社案内</span>
+                    ';            
         }
         ?>
     </div>
