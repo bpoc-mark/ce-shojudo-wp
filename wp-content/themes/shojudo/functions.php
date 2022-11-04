@@ -72,12 +72,13 @@ add_theme_support('post-thumbnails', array('banner','product','technology','digi
 add_image_size('banner-feature', 450, 300, true);
 
 
-function redirect_cf7()
-{
+add_action( 'wp_footer', 'redirect_cf7' );
+ 
+function redirect_cf7() {
 ?>
 <script type="text/javascript">
 document.addEventListener('wpcf7mailsent', function(event) {
-    location = 'https://shojudo.com/thankyou';
+    location = 'https://shojudo.hipetest.com/support/thankyou/';
 }, false);
 </script>
 <?php
