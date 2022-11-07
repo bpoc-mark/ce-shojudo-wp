@@ -24,7 +24,7 @@
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 
                         <div class="swiper-slide">
-                            <a href="">
+                            <a href="<?php echo the_field('banner_link');?>">
                                 <?php echo the_post_thumbnail('full'); ?>
                             </a>
                         </div>
