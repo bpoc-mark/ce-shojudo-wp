@@ -151,7 +151,8 @@
 				&:not(:last-child) {
 					margin-bottom: 20px;
 				}
-				a {
+				a,
+				.no_link {
 					display: flex;
 					align-items: flex-start;
 					overflow: hidden;
@@ -180,6 +181,11 @@
 						max-width: 650px;
 					}
 					.title {
+						font-size: 18px;
+						font-weight: 500;
+						letter-spacing: 1px;
+					}
+					.underline {
 						font-size: 18px;
 						font-weight: 500;
 						letter-spacing: 1px;

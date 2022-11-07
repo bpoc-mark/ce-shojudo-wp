@@ -51,7 +51,11 @@
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
                 ?>
             <li class="single-cont__link-list--item">
-                <a href="<?php the_field('link_to_post');?>" target="_blank">
+                <?php
+                    $links = $detail['link_to_post'];
+                    if($links != ''):
+                ?>
+                <a href="<?php echo $detail['link_to_post'];?>" target="_blank">
                     <div class="single-cont__link-list--item__image">
                         <?php
                                 if ($image_attributes != '') {
@@ -62,10 +66,41 @@
                                 ?>
                     </div>
                     <div class="single-cont__link-list--item__content">
-                        <p class="title"><?php echo $detail['title']; ?></p>
+                        <?php
+                        $link = $detail['link_to_post'];
+                            if($link != ''){
+                                echo '<p class="title underline">'.$detail['title'].'</p>';
+                            }else{
+                                echo '<p class="title">'.$detail['title'].'</p>';
+                            }
+                        ?>
                         <p class="content"><?php echo $detail['content']; ?></p>
                     </div>
                 </a>
+                <?php else: ?>
+                <div class="no_link">
+                    <div class="single-cont__link-list--item__image">
+                        <?php
+                                if ($image_attributes != '') {
+                                    echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                } else {
+                                    echo '';
+                                }
+                                ?>
+                    </div>
+                    <div class="single-cont__link-list--item__content">
+                        <?php
+                        $link = $detail['link_to_post'];
+                            if($link != ''){
+                                echo '<p class="title underline">'.$detail['title'].'</p>';
+                            }else{
+                                echo '<p class="title">'.$detail['title'].'</p>';
+                            }
+                        ?>
+                        <p class="content"><?php echo $detail['content']; ?></p>
+                    </div>
+                </div>
+                <?php endif;?>
             </li>
             <?php endforeach; ?>
             <?php endif; ?>

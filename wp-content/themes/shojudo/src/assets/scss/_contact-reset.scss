@@ -1,5 +1,9 @@
 input {
-	// -webkit-appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
+	outline: none;
+	content: none;
 	@include Noto_Sans();
 	&[type="text"] {
 		padding: 0;
@@ -29,7 +33,6 @@ input {
 		height: 0;
 		font-size: 0;
 		line-height: 1;
-
 		&:checked + label {
 			background: #ff0000;
 		}

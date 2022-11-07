@@ -43,8 +43,9 @@
                                 <div class="box--desc">
                                     <?php echo the_content(); ?>
                                 </div>
-                                <div class="box--lower-desc">
-                                    <?php
+                            </a>
+                            <div class="box--lower-desc">
+                                <?php
                                         $tags = get_the_terms(
                                             $post->ID,
                                             'tags'
@@ -52,11 +53,12 @@
                                         if ($tags) :
                                             foreach ($tags as $tag) :
                                         ?>
-                                    <span><?php echo esc_html($tag->name); ?></span>
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </div>
-                            </a>
+                                <span>
+                                    <a
+                                        href="<?php echo get_term_link($tag);?>"><?php echo esc_html($tag->name); ?></a></span>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
                         </li>
                         <?php endwhile; ?>
                         <?php endif; ?>

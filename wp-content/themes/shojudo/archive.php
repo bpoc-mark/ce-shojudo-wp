@@ -47,6 +47,7 @@
                                 <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>
+
                         </li>
                         <?php endwhile; ?>
                     </ul>
