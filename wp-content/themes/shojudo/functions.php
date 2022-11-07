@@ -71,6 +71,28 @@ add_action('init', 'cptui_register_my_cpts_banner');
 add_theme_support('post-thumbnails', array('banner','product','technology','digital'));
 add_image_size('banner-feature', 450, 300, true);
 
+//VERIFY EMAIL
+add_filter( 'wpcf7_validate_email', 'wpcf7_validate_email_filter_extend', 11, 2 );
+add_filter( 'wpcf7_validate_email*', 'wpcf7_validate_email_filter_extend', 11, 2 );
+function wpcf7_validate_email_filter_extend( $result, $tag ) {
+    $type = $tag['type'];
+    $name = $tag['name'];
+    $_POST[$name] = trim( strtr( (string) $_POST[$name], "n", " " ) );
+    if ( 'email' == $type || 'email*' == $type ) {
+        if (preg_match('/(.*)-confirm$/', $name, $matches)){
+            $target_name = $matches[1];
+            if ($_POST[$name] != $_POST[$target_name]) {
+                if (method_exists($result, 'invalidate')) {
+                    $result->invalidate( $tag,"メールが一致しません");
+                } else {
+                    $result['valid'] = false;
+                    $result['reason'][$name] = 'メールが一致しません';
+                }
+            }
+        }
+    }
+    return $result;
+}
 
 add_action( 'wp_footer', 'redirect_cf7' );
  
@@ -78,7 +100,7 @@ function redirect_cf7() {
 ?>
 <script type="text/javascript">
 document.addEventListener('wpcf7mailsent', function(event) {
-    location = 'https://shojudo.hipetest.com/support/thankyou/';
+    location = 'https://shojudo.com/thankyou';
 }, false);
 </script>
 <?php

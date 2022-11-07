@@ -5,7 +5,8 @@
                     <nav class="f-nav">
                         <div class="nav--contact">
                             <div class="nav--contact__wrap">
-                                <a class="nav01--link" href="https://www.shojudo.co.jp/supprot/toiawase.html"
+                                <a class="nav01--link"
+                                    href="<?php echo get_permalink(get_page_by_path('support/toiawase'));?>"
                                     target="_blank">お問い合わせ
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
                                         alt="white_arrow" />
@@ -13,7 +14,7 @@
                             </div>
                         </div>
                         <div class="f-nav--wrap">
-                            <a href="https://www.shojudo.co.jp/product/index.html">
+                            <a href="<?php echo get_post_type_archive_link('product'); ?>">
                                 <h4 class="f-nav--wrap__title">製品紹介</h4>
                             </a>
                             <div class="f-nav--list-wrap">
@@ -42,7 +43,7 @@
                             </div>
                         </div>
                         <div class="f-nav--wrap">
-                            <a href="https://www.shojudo.co.jp/technology/index.html">
+                            <a href="<?php echo get_post_type_archive_link('technology'); ?>">
                                 <h4 class="f-nav--wrap__title">技術紹介</h4>
                             </a>
                             <ul class="f-nav--list">
@@ -70,7 +71,7 @@
                             </ul>
                         </div>
                         <div class="f-nav--wrap">
-                            <a href="https://www.shojudo.co.jp/digital/index.html">
+                            <a href="<?php echo get_post_type_archive_link('digital'); ?>">
                                 <h4 class="f-nav--wrap__title">デジタル印刷紹介</h4>
                             </a>
                             <ul class="f-nav--list">

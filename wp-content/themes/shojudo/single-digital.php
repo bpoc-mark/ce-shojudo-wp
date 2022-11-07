@@ -139,8 +139,8 @@
                 <p class="contact-us--small">土・日・祝を除く、平日9:00～17:00</p>
                 <div class="sect2--btn">
                     <ul>
-                        <li onclick="location.href='';">
-                            <a href="">お問い合わせ
+                        <li onclick="location.href='/toiawase';">
+                            <a href="<?php echo get_permalink(get_page_by_path('support/toiawase'));?>">お問い合わせ
                                 <figure>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
                                         alt="white_arrow" />

@@ -158,11 +158,12 @@
                                     <a href="<?php echo get_permalink(get_page_by_path('company/careers')); ?>"
                                         class="nav02--link">採用情報</a>
                                 </li>
-                                <li class="nav01--item"
-                                    onclick="location.href='https://www.shojudo.co.jp/supprot/toiawase.html';">
-                                    <a href="https://www.shojudo.co.jp/supprot/toiawase.html" target="_blank"
-                                        class="nav01--link">お問い合わせ</a>
-                                </li>
+                                <a href="<?php echo get_permalink(get_page_by_path('support/toiawase'));?>"
+                                    target="_blank">
+                                    <li class="nav01--item">
+                                        <p class="nav01--link">お問い合わせ</p>
+                                    </li>
+                                </a>
                             </ul>
                         </nav>
                         <div class="ham-menu" id="header_menu">
