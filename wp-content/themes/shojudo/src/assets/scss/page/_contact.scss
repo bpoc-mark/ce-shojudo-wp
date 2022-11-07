@@ -124,6 +124,11 @@
 			.wpcf7-response-output {
 				display: none !important;
 			}
+			.wpcf7-list-item-label {
+				u {
+					text-underline-offset: 3px;
+				}
+			}
 		}
 	}
 	.sect2 {

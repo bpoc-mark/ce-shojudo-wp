@@ -4,17 +4,17 @@
             <a href="<?php echo get_home_url() ?>" title="HOME">HOME</a>
         </span>
         <?php
-        if (is_archive('product')) {
+        if (is_post_type_archive('product')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">製品紹介</span>
                     ';
-        } elseif (is_archive('technology')) {
+        } elseif (is_post_type_archive('technology')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">技術紹介</span>
                     ';
-        } elseif (is_archive('digital')) {
+        } elseif (is_post_type_archive('digital')) {
             echo '
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">デジタル印刷紹介</span>
@@ -37,18 +37,6 @@
                         <span class="aioseo-breadcrumb"><a href="/company">会社案内</a></span>
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">事業所</span>
-                    ';
-        } elseif (is_tax('')) {
-            $trail     = '';
-            $query_obj = get_queried_object();
-            $term_id   = $query_obj->term_id;
-            $taxonomy  = get_taxonomy($query_obj->taxonomy);
-            if ($term_id && $taxonomy) {
-                $trail .=  get_term_parents_list($term_id, $taxonomy->name, array('inclusive' => false, 'separator' => ' / '));
-            }
-            echo '
-                        <span class="aioseo-breadcrumb-separator">/</span>
-                        <span class="aioseo-breadcrumb">' . $trail . $query_obj->name . '</span>
                     ';
         }elseif (is_singular('technology')) {
                 $post_object = get_queried_object();
