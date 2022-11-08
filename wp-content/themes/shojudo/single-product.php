@@ -136,7 +136,7 @@
                                         $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
                                         if ($file['type'] == 'image') {
-                                            $img = $file;
+                                            $img = $file['sizes']['large'];
                                             echo '<img src="' . $img . '">';
                                         } elseif ($file) {
                                             echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';

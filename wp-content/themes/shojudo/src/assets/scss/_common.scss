@@ -207,12 +207,18 @@ header {
 						}
 					}
 				}
-				&:first-child,
-				&:nth-child(2) {
+				&:first-child {
 					.sub--menu {
 						&--items {
 							text-align: left;
 							width: calc(100% / 5);
+						}
+					}
+				}
+				&:nth-child(2) {
+					.sub--menu {
+						&--items {
+							text-align: center;
 						}
 					}
 				}

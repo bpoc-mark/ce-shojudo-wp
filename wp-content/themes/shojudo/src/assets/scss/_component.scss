@@ -107,11 +107,18 @@ img {
 				text-align: center;
 				overflow: hidden;
 				border-radius: 5px;
-				height: 177px;
-				width: 260px;
-				object-fit: cover;
+				width: 100%;
+				@include is-max(767px) {
+					height: 240px;
+				}
+				@include is-min(769px) {
+					height: 177px;
+					max-width: 260px;
+					margin: 0 auto;
+				}
 				img {
 					width: 100%;
+					object-fit: cover;
 				}
 			}
 			.box--title {
