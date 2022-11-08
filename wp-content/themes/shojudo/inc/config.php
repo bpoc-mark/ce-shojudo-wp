@@ -36,13 +36,13 @@ if (is_front_page()) {
     $title = get_field('meta_title');
     $description = get_field('meta_description');
 }else if(is_post_type_archive('product')){
-    $title = 'product';
+    $title = '製品紹介 |  株式会社昇寿堂';
     $description = '';
 }else if(is_post_type_archive('technology')){
-    $title = 'technology';
+    $title = '技術紹介 |  株式会社昇寿堂';
     $description = '';  
 }else if(is_post_type_archive('digital')){
-    $title = 'digital';
+    $title = 'デジタル印刷紹介 |  株式会社昇寿堂';
     $description = '';  
 }
 //サイト名

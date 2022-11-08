@@ -124,14 +124,13 @@
 
                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <li class="box--container">
-                    <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
+                    <a href="<?php echo get_permalink();?>">
                         <figure>
                             <?php
                                         $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
-
                                         if ($file['type'] == 'image') {
-                                            $img = $file['sizes']['medium_large'];
+                                            $img = $file;
                                             echo '<img src="' . $img . '">';
                                         } elseif ($file) {
                                             echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';

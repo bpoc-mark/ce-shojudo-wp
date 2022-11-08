@@ -4,35 +4,25 @@
         <div class="wrapper">
             <div class="banner">
                 <div class="swiper banner--swiper2">
-
                     <div class="swiper-wrapper">
-
                         <?php
                         $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-
                         $args = array(
                             'post_type' => 'banner',
                             'post_status' => 'publish',
                             'paged' => $paged,
                         );
-
                         $the_query = new WP_Query($args);
                         ?>
-
                         <?php if ($the_query->have_posts()) : ?>
-
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-
                         <div class="swiper-slide">
-                            <a href="<?php echo the_field('banner_link');?>">
+                            <a href="<?php echo the_field('banner_link'); ?>">
                                 <?php echo the_post_thumbnail('full'); ?>
                             </a>
                         </div>
-
                         <?php endwhile; ?>
-
                         <?php endif; ?>
-
                     </div>
                 </div>
             </div>
@@ -211,7 +201,7 @@
                                         ?>
                                 <span>
                                     <a
-                                        href="<?php echo get_term_link($tag);?>"><?php echo esc_html($tag->name); ?></a></span>
+                                        href="<?php echo get_term_link($tag); ?>"><?php echo esc_html($tag->name); ?></a></span>
                                 <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>

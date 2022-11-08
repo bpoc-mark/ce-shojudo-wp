@@ -116,6 +116,7 @@
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
+                                            'post_parent' => 0
                                         ];
 
                                         $the_query = new WP_Query($args);
@@ -138,18 +139,16 @@
                                         class="nav02--link">会社案内</a>
                                     <div class="sub--menu">
                                         <ul class="sub--menu--wrap">
-                                            <li class="sub--menu--items"><a
+                                            <li class="sub--menu--items">
+                                                <a
                                                     href="<?php echo get_permalink(get_page_by_path('company/history')); ?>">沿革</a>
                                             </li>
-                                        </ul>
-                                        <ul class="sub--menu--wrap">
-                                            <li class="sub--menu--items"><a
+                                            <li class="sub--menu--items">
+                                                <a
                                                     href="<?php echo get_permalink(get_page_by_path('company/office'));?>">事業所</a>
                                             </li>
-                                        </ul>
-                                        <ul class="sub--menu--wrap">
-                                            <li class="sub--menu--items"><a
-                                                    href="<?php echo get_permalink(get_page_by_path('csr'));?>">CSR</a>
+                                            <li class="sub--menu--items">
+                                                <a href="<?php echo get_permalink(get_page_by_path('csr'));?>">CSR</a>
                                             </li>
                                         </ul>
                                     </div>

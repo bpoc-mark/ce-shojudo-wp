@@ -4,10 +4,8 @@
     <section class="sect1">
         <div class="wrapper">
             <div class="container">
-                <h2 class="sect--title">製品紹介</h2>
-                <p class="sect--sub">
-                    昇寿堂の技術を詰め込んだ商品の一覧です。官庁様・企業様から一般の方まで広くご利用いただいております。<br>御社のご利用にあわせ、最適な商品をご提案いたします。お気軽にご相談ください。</p>
-                <div class="boxes">
+                <h2 class="sect--title">セキュリティ印刷</h2>
+                <div class="boxes tag-archive">
                     <ul class="box--wrapper">
                         <?php while (have_posts()) : the_post(); ?>
                         <li class="box--container">

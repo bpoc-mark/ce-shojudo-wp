@@ -105,7 +105,19 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">会社案内</span>
                     ';            
-        }
+        }elseif (is_tax('tags')) {
+                $trail     = '';
+                $query_obj = get_queried_object();
+                $term_id   = $query_obj->term_id;
+                $taxonomy  = get_taxonomy( $query_obj->taxonomy );
+                if ( $term_id && $taxonomy ) {
+                    $trail .=  get_term_parents_list( $term_id, $taxonomy->name, array( 'inclusive' => false, 'separator' => ' / ') );
+                }
+                echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">'.$trail . $query_obj->name.'</span>
+                    ';
+            }
         ?>
     </div>
 </ul>
