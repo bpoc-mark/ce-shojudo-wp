@@ -4,11 +4,11 @@
     <section class="single-cont">
         <?php
         while (have_posts()) : the_post(); ?>
-        <h1 class="sect--title"><?php echo the_title(); ?></h1>
-        <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
-        <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
-        <div class="single-cont__featured-img">
-            <?php
+            <h1 class="sect--title"><?php echo the_title(); ?></h1>
+            <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
+            <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
+            <div class="single-cont__featured-img">
+                <?php
                 $file = get_field('banner');
                 $default_img = get_template_directory_uri();
 
@@ -21,8 +21,8 @@
                     echo '<img src="' . $default_img . '/release/image/default_img.png">';
                 }
                 ?>
-        </div>
-        <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
+            </div>
+            <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>
         <h3 class="single-cont__heading"><?php the_field('first_heading_h3'); ?></h3>
         <p><?php the_field('first_heading_content'); ?></p>
@@ -30,10 +30,10 @@
             <ul class="single-cont__tech-issues--list">
                 <?php
                 $issues = get_field('issues');
-                foreach($issues as $issue){
-                    if($issue != ''){
-                        echo '<li class="single-cont__tech-issues--list__item">'.$issue.'</li>';
-                    }else{
+                foreach ($issues as $issue) {
+                    if ($issue != '') {
+                        echo '<li class="single-cont__tech-issues--list__item">' . $issue . '</li>';
+                    } else {
                         echo '';
                     }
                 }
@@ -47,86 +47,86 @@
         <ul class="single-cont__link-list">
             <?php $details = SCF::get('Link_Post');
             if ($details) : ?>
-            <?php foreach ($details as $detail) :
+                <?php foreach ($details as $detail) :
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
                 ?>
-            <li class="single-cont__link-list--item">
-                <?php
-                    $links = $detail['link_to_post'];
-                    if($links != ''):
-                ?>
-                <a href="<?php echo $detail['link_to_post'];?>" target="_blank">
-                    <div class="single-cont__link-list--item__image">
+                    <li class="single-cont__link-list--item">
                         <?php
-                                if ($image_attributes != '') {
-                                    echo '<img src="' . $image_attributes[0] . '" alt="">';
-                                } else {
-                                    echo '';
-                                }
-                                ?>
-                    </div>
-                    <div class="single-cont__link-list--item__content">
-                        <?php
-                        $link = $detail['link_to_post'];
-                            if($link != ''){
-                                echo '<p class="title underline">'.$detail['title'].'</p>';
-                            }else{
-                                echo '<p class="title">'.$detail['title'].'</p>';
-                            }
+                        $links = $detail['link_to_post'];
+                        if ($links != '') :
                         ?>
-                        <p class="content"><?php echo $detail['content']; ?></p>
-                    </div>
-                </a>
-                <?php else: ?>
-                <div class="no_link">
-                    <div class="single-cont__link-list--item__image">
-                        <?php
-                                if ($image_attributes != '') {
-                                    echo '<img src="' . $image_attributes[0] . '" alt="">';
-                                } else {
-                                    echo '';
-                                }
-                                ?>
-                    </div>
-                    <div class="single-cont__link-list--item__content">
-                        <?php
-                        $link = $detail['link_to_post'];
-                            if($link != ''){
-                                echo '<p class="title underline">'.$detail['title'].'</p>';
-                            }else{
-                                echo '<p class="title">'.$detail['title'].'</p>';
-                            }
-                        ?>
-                        <p class="content"><?php echo $detail['content']; ?></p>
-                    </div>
-                </div>
-                <?php endif;?>
-            </li>
-            <?php endforeach; ?>
+                            <a href="<?php echo $detail['link_to_post']; ?>" target="_blank">
+                                <div class="single-cont__link-list--item__image">
+                                    <?php
+                                    if ($image_attributes != '') {
+                                        echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="single-cont__link-list--item__content">
+                                    <?php
+                                    $link = $detail['link_to_post'];
+                                    if ($link != '') {
+                                        echo '<p class="title underline">' . $detail['title'] . '</p>';
+                                    } else {
+                                        echo '<p class="title">' . $detail['title'] . '</p>';
+                                    }
+                                    ?>
+                                    <p class="content"><?php echo $detail['content']; ?></p>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <div class="no_link">
+                                <div class="single-cont__link-list--item__image">
+                                    <?php
+                                    if ($image_attributes != '') {
+                                        echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } else {
+                                        echo '';
+                                    }
+                                    ?>
+                                </div>
+                                <div class="single-cont__link-list--item__content">
+                                    <?php
+                                    $link = $detail['link_to_post'];
+                                    if ($link != '') {
+                                        echo '<p class="title underline">' . $detail['title'] . '</p>';
+                                    } else {
+                                        echo '<p class="title">' . $detail['title'] . '</p>';
+                                    }
+                                    ?>
+                                    <p class="content"><?php echo $detail['content']; ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
             <?php endif; ?>
         </ul>
         <div class="single-cont__processing">
-            <h3 class="single-cont__heading"><?php the_field('list_of_processing');?></h3>
+            <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
             <div class="boxes">
                 <ul class="single-cont__processing--content-list box--wrapper">
                     <?php
-                        $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
-                        $args = array(
-                            'post_type' => 'technology',
-                            'post_parent' =>  $post->ID,
-                            'post_status' => 'publish',
-                            'posts_per_page' => 6,
-                            'paged' => $paged,
-                        );
+                    $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+                    $args = array(
+                        'post_type' => 'technology',
+                        'post_parent' =>  $post->ID,
+                        'post_status' => 'publish',
+                        'posts_per_page' => 6,
+                        'paged' => $paged,
+                    );
 
-                        $the_query = new WP_Query($args);
-                        ?>
+                    $the_query = new WP_Query($args);
+                    ?>
                     <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <li class="single-cont__processing--content-list__item box--container">
-                        <a href="<?php echo get_permalink(); ?>">
-                            <figure>
-                                <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <li class="single-cont__processing--content-list__item box--container">
+                                <a href="<?php echo get_permalink(); ?>">
+                                    <figure>
+                                        <?php
                                         $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
                                         if ($file['type'] == 'image') {
@@ -138,16 +138,16 @@
                                             echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                         }
                                         ?>
-                            </figure>
-                            <h3 class="box--title"><?php echo the_title(); ?></h3>
-                            <div class="box--desc">
-                                <p><?php echo the_content(); ?></p>
-                            </div>
-                        </a>
-                    </li>
-                    <?php endwhile; ?>
+                                    </figure>
+                                    <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                    <div class="box--desc">
+                                        <p><?php echo the_content(); ?></p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
                     <?php endif; ?>
-                    <?php wp_reset_postdata();?>
+                    <?php wp_reset_postdata(); ?>
                 </ul>
             </div>
         </div>
@@ -170,42 +170,42 @@
 
                 <?php if ($the_query->have_posts()) : ?>
 
-                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                <li class="box--container">
-                    <a href="<?php echo get_permalink();?>">
-                        <figure>
-                            <?php
-                                        $file = get_field('banner');
-                                        $default_img = get_template_directory_uri();
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="box--container">
+                            <a href="<?php echo get_permalink(); ?>">
+                                <figure>
+                                    <?php
+                                    $file = get_field('banner');
+                                    $default_img = get_template_directory_uri();
 
-                                        if ($file['type'] == 'image') {
-                                            $img = $file['sizes']['large'];
-                                            echo '<img src="' . $img . '">';
-                                        } elseif ($file) {
-                                            echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                                        } else {
-                                            echo '<img src="' . $default_img . '/release/image/default_img.png">';
-                                        }
-                                        ?>
-                        </figure>
-                        <h3 class="box--title"><?php echo the_title(); ?></h3>
-                        <div class="box--desc">
-                            <?php echo the_content(); ?>
-                        </div>
-                    </a>
-                    <div class="box--lower-desc">
-                        <?php 
-                                    $childs = get_field('child_posts');
-                                    if($childs != ''):
-                                        foreach($childs as $child):?>
-                        <span>
-                            <a href="<?php echo $child->guid;?>"><?php echo $child->post_title; ?></a>
-                        </span>
-                        <?php endforeach; ?>
-                        <?php endif; ?>
-                    </div>
-                </li>
-                <?php endwhile; ?>
+                                    if ($file['type'] == 'image') {
+                                        $img = $file['sizes']['large'];
+                                        echo '<img src="' . $img . '">';
+                                    } elseif ($file) {
+                                        echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } else {
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                    }
+                                    ?>
+                                </figure>
+                                <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                <div class="box--desc">
+                                    <?php echo the_content(); ?>
+                                </div>
+                            </a>
+                            <div class="box--lower-desc">
+                                <?php
+                                $childs = get_field('child_posts');
+                                if ($childs != '') :
+                                    foreach ($childs as $child) : ?>
+                                        <span>
+                                            <a href="<?php echo $child->guid; ?>"><?php echo $child->post_title; ?></a>
+                                        </span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>
                 <?php endif; ?>
             </ul>
         </div>
@@ -220,10 +220,9 @@
                 <div class="sect2--btn">
                     <ul>
                         <li onclick="location.href='/toiawase';">
-                            <a href="<?php echo get_permalink(get_page_by_path('support/toiawase'));?>">お問い合わせ
+                            <a href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>">お問い合わせ
                                 <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
                                 </figure>
                             </a>
                         </li>
