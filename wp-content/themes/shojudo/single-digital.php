@@ -143,26 +143,23 @@
                         <div class="box--desc">
                             <?php echo the_content(); ?>
                         </div>
-                        <div class="box--lower-desc">
-                            <?php
-                                        $tags = get_the_terms(
-                                            $post->ID,
-                                            'tags'
-                                        );
-                                        if ($tags) :
-                                            foreach ($tags as $tag) :
-                                        ?>
-                            <span><?php echo esc_html($tag->name); ?></span>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
                     </a>
+                    <div class="box--lower-desc">
+                        <?php 
+                                    $childs = get_field('child_posts');
+                                    if($childs != ''):
+                                        foreach($childs as $child):?>
+                        <span>
+                            <a href="<?php echo $child->guid;?>"><?php echo $child->post_title; ?></a>
+                        </span>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
                 </li>
                 <?php endwhile; ?>
                 <?php endif; ?>
             </ul>
         </div>
-
     </section>
     <section class="sect2">
         <div class="wrapper">

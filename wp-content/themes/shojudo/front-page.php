@@ -191,17 +191,13 @@
                                 </div>
                             </a>
                             <div class="box--lower-desc">
-                                <?php
-                                        $tags = get_the_terms(
-                                            $post->ID,
-                                            'tags'
-                                        );
-                                        if ($tags) :
-                                            foreach ($tags as $tag) :
-                                        ?>
+                                <?php 
+                                    $childs = get_field('child_posts');
+                                    if($childs != ''):
+                                        foreach($childs as $child):?>
                                 <span>
-                                    <a
-                                        href="<?php echo get_term_link($tag); ?>"><?php echo esc_html($tag->name); ?></a></span>
+                                    <a href="<?php echo $child->guid;?>"><?php echo $child->post_title; ?></a>
+                                </span>
                                 <?php endforeach; ?>
                                 <?php endif; ?>
                             </div>

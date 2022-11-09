@@ -59,7 +59,9 @@
 				display: flex;
 				max-width: 892px;
 				justify-content: space-between;
-				gap: 45px;
+				@include is-min(767px) {
+					gap: 45px;
+				}
 				@include is-max(767px) {
 					flex-wrap: wrap;
 				}
@@ -136,11 +138,13 @@
 							padding: 9px 11px 8px;
 							margin: 5px;
 							font-size: 12px;
-							color: #0035ad;
 							border-radius: 10px;
 							background-color: #ecf0fa;
 							align-items: center;
 							justify-content: center;
+							a {
+								color: #0035ad;
+							}
 						}
 					}
 				}
