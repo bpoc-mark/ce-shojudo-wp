@@ -2,8 +2,7 @@
 <div id="Single-Page">
     <?php include get_template_directory() . '/inc/breadcrumbs.php'; ?>
     <section class="single-cont">
-        <?php
-        while (have_posts()) : the_post(); ?>
+        <?php while (have_posts()) : the_post(); ?>
             <h1 class="sect--title"><?php echo the_title(); ?></h1>
             <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
             <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
@@ -29,13 +28,15 @@
         <div class="single-cont__tech-issues">
             <ul class="single-cont__tech-issues--list">
                 <?php
-                $issues = get_field('issues');
-                if ($issues) {
-                    foreach ($issues as $issue) {
+                $issues = SCF::get('Issues');
+                foreach ($issues as $issue) {
+                    if ($issue['issue'] != '') {
+                        echo '<li class="single-cont__tech-issues--list__item">' . $issue['issue'] . '</li>';
+                    } else {
+                        echo '';
+                    }
+                }
                 ?>
-                        <li class="single-cont__tech-issues--list__item"><?php echo $issue; ?></li>
-                <?php }
-                } ?>
             </ul>
             <p class="single-cont__tech-issues--list__ttl"><?php the_field('heading_issue'); ?></p>
             <p class="single-cont__tech-issues--list__content"><?php the_field('how_to_fix'); ?></p>
@@ -46,7 +47,7 @@
             <?php $details = SCF::get('Link_Post');
             if ($details) : ?>
                 <?php foreach ($details as $detail) :
-                    $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
+                    $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_banner']);
                 ?>
                     <li class="single-cont__link-list--item">
                         <?php
@@ -58,8 +59,10 @@
                                     <?php
                                     if ($image_attributes != '') {
                                         echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } elseif (!empty($video_attributes)) {
+                                        echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '';
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
                                     ?>
                                 </div>
@@ -81,8 +84,10 @@
                                     <?php
                                     if ($image_attributes != '') {
                                         echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } elseif (!empty($video_attributes)) {
+                                        echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '';
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
                                     ?>
                                 </div>
@@ -128,12 +133,15 @@
                                 <figure>
                                     <?php
                                     $file = get_field('banner');
+                                    $video = get_field('featured_video');
                                     $default_img = get_template_directory_uri();
                                     if ($file['type'] == 'image') {
                                         $img = $file['sizes']['large'];
                                         echo '<img src="' . $img . '">';
-                                    } elseif ($file) {
-                                        echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif ($file || $video) {
+                                        echo '<video src="' . $file['url'] . '' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif (!empty($video)) {
+                                        echo $video;
                                     } else {
                                         echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }

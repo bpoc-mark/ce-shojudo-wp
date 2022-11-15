@@ -29,10 +29,10 @@
         <div class="single-cont__tech-issues">
             <ul class="single-cont__tech-issues--list">
                 <?php
-                $issues = get_field('issues');
+                $issues = SCF::get('Issues');
                 foreach ($issues as $issue) {
-                    if ($issue != '') {
-                        echo '<li class="single-cont__tech-issues--list__item">' . $issue . '</li>';
+                    if ($issue['issue'] != '') {
+                        echo '<li class="single-cont__tech-issues--list__item">' . $issue['issue'] . '</li>';
                     } else {
                         echo '';
                     }
@@ -48,7 +48,7 @@
             <?php $details = SCF::get('Link_Post');
             if ($details) : ?>
                 <?php foreach ($details as $detail) :
-                    $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
+                    $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_banner']);
                 ?>
                     <li class="single-cont__link-list--item">
                         <?php
@@ -60,8 +60,10 @@
                                     <?php
                                     if ($image_attributes != '') {
                                         echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } elseif (!empty($video_attributes)) {
+                                        echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '';
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
                                     ?>
                                 </div>
@@ -83,8 +85,10 @@
                                     <?php
                                     if ($image_attributes != '') {
                                         echo '<img src="' . $image_attributes[0] . '" alt="">';
+                                    } elseif (!empty($video_attributes)) {
+                                        echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '';
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
                                     ?>
                                 </div>
@@ -107,12 +111,13 @@
         </ul>
         <div class="single-cont__process-link">
             <?php
+            $link_text = get_field('process_link_text');
             $link = get_field('process_link');
             $img = get_template_directory_uri();
             if ($link != '') {
                 echo '<a href="' . $link . '">
                             <img src="' . $img . '/release/image/link-arrow.svg">
-                            <p>その他のセキュリティ印刷・加工はこちら</p>
+                            <p>' . $link_text . '</p>
                           </a>';
             } else {
                 echo '';
@@ -144,12 +149,15 @@
                                 <figure>
                                     <?php
                                     $file = get_field('banner');
+                                    $video = get_field('featured_video');
                                     $default_img = get_template_directory_uri();
                                     if ($file['type'] == 'image') {
                                         $img = $file['sizes']['large'];
                                         echo '<img src="' . $img . '">';
-                                    } elseif ($file) {
-                                        echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif ($file || $video) {
+                                        echo '<video src="' . $file['url'] . '' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif (!empty($video)) {
+                                        echo $video;
                                     } else {
                                         echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
