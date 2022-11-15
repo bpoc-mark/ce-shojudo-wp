@@ -153,6 +153,9 @@
 							font-size: 15px;
 							font-weight: 500;
 							width: calc(100% - 124px);
+							@include is-max(767px) {
+								width: calc(100% - 80px);
+							}
 						}
 					}
 				}

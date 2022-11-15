@@ -1,4 +1,4 @@
-<?php get_header();?>
+<?php get_header(); ?>
 <div id="CSR">
     <?php include get_template_directory() . '/inc/breadcrumbs.php'; ?>
     <section class="sect1">
@@ -13,8 +13,7 @@
                     <h3 class="sect1__csr-container__title">ISO9001</h3>
                     <div class="sect1__csr-container__content">
                         <div class="sect1__csr-container__content--row1">
-                            <img src="<?php echo get_template_directory_uri();?>/release/image/csr/csr_img-1.svg"
-                                alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/release/image/csr/csr_img-1.svg" alt="">
                         </div>
                         <div class="sect1__csr-container__content--row2">
                             <p class="title">お客様からの信頼と満足をいただける品質をご提供します。</p>
@@ -54,8 +53,7 @@
                     <h3 class="sect1__csr-container__title">プライバシーマーク</h3>
                     <div class="sect1__csr-container__content">
                         <div class="sect1__csr-container__content--row1">
-                            <img src="<?php echo get_template_directory_uri();?>/release/image/csr/csr_img-2.svg"
-                                alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/release/image/csr/csr_img-2.svg" alt="">
                         </div>
                         <div class="sect1__csr-container__content--row2">
                             <p class="title">個人情報の適正な管理・保護に努めてまいります。</p>
@@ -69,8 +67,7 @@
                     <h3 class="sect1__csr-container__title">グリーンプリンティング</h3>
                     <div class="sect1__csr-container__content">
                         <div class="sect1__csr-container__content--row1">
-                            <img src="<?php echo get_template_directory_uri();?>/release/image/csr/csr_img-3.svg"
-                                alt="">
+                            <img src="<?php echo get_template_directory_uri(); ?>/release/image/csr/csr_img-3.svg" alt="">
                         </div>
                         <div class="sect1__csr-container__content--row2">
                             <p class="title">環境に配慮した印刷の工程と資材の管理を行っています。</p>
@@ -120,27 +117,5 @@
                 </div>
             </div>
     </section>
-    <section class="sect2">
-        <div class="wrapper">
-            <div class="container">
-                <h2 class="sect--title">お問い合わせ</h2>
-                <p class="contact-us">印刷物、印刷技術のことでしたら<br>お気軽にご相談ください。</p>
-                <h3><a href="tel:0336424596">03-3642-4596</a></h3>
-                <p class="contact-us--small">土・日・祝を除く、平日9:00～17:00</p>
-                <div class="sect2--btn">
-                    <ul>
-                        <li onclick="location.href='/toiawase';">
-                            <a href="<?php echo get_permalink(get_page_by_path('support/toiawase'));?>">お問い合わせ
-                                <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
-                                </figure>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
-<?php get_footer();?>
+<?php get_footer(); ?>

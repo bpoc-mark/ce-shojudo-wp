@@ -26,8 +26,8 @@ img {
 	max-width: 1300px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
 	@include is-min(1000px) {
 		padding-left: 50px;
 		padding-right: 50px;
@@ -36,7 +36,7 @@ img {
 
 .breadcrumbs {
 	max-width: 1366px;
-	padding: 0 30px;
+	padding: 0 25px;
 	margin: 0 auto;
 	.aioseo-breadcrumbs {
 		padding: 0 0.732vw 15px;
@@ -284,4 +284,11 @@ img {
 
 figure {
 	margin: 0;
+}
+
+.sp {
+	display: none;
+	@include is-max(767px) {
+		display: block;
+	}
 }
