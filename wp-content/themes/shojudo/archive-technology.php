@@ -28,12 +28,15 @@
                                             <?php
                                             $file = get_field('banner');
                                             $default_img = get_template_directory_uri();
+                                            $featured = the_post_thumbnail();
 
                                             if ($file['type'] == 'image') {
                                                 $img = $file['sizes']['large'];
                                                 echo '<img src="' . $img . '">';
-                                            } elseif ($file) {
+                                            } elseif (!empty($file)) {
                                                 echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                            } elseif (!empty($featured)) {
+                                                echo $featured;
                                             } else {
                                                 echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                             }

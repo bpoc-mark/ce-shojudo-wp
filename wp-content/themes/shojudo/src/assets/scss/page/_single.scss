@@ -3,11 +3,8 @@
 
 	.single-cont {
 		max-width: 950px;
-		margin: 40px auto 0;
+		margin: 40px auto 60px;
 		padding: 0 25px;
-		@include is-max(767px) {
-			margin: 40px auto;
-		}
 		&__sub-heading {
 			margin: 30px 0 20px;
 			text-align: center;
@@ -94,6 +91,9 @@
 						@include is-min(767px) {
 							width: 264px;
 							height: 180px;
+						}
+						@include is-max(767px) {
+							height: 220px;
 						}
 						img,
 						video {

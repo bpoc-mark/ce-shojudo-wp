@@ -9,6 +9,7 @@
             <div class="single-cont__featured-img">
                 <?php
                 $file = get_field('banner');
+                $video = get_field('featured_video');
                 $default_img = get_template_directory_uri();
 
                 if ($file['type'] == 'image') {
@@ -16,6 +17,8 @@
                     echo '<img src="' . $img . '">';
                 } elseif ($file) {
                     echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                } elseif (!empty($video)) {
+                    echo '<video src="' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                 } else {
                     echo '<img src="' . $default_img . '/release/image/default_img.png">';
                 }
@@ -62,7 +65,7 @@
                                     } elseif (!empty($video_attributes)) {
                                         echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                        echo '';
                                     }
                                     ?>
                                 </div>
@@ -87,7 +90,7 @@
                                     } elseif (!empty($video_attributes)) {
                                         echo '<video src="' . $video_attributes . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
                                     } else {
-                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                        echo '';
                                     }
                                     ?>
                                 </div>
