@@ -27,6 +27,7 @@
             </div>
             <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
         <h3 class="single-cont__heading"><?php the_field('first_heading_h3'); ?></h3>
         <p class="single-cont__main-content"><?php the_field('first_heading_content'); ?></p>
         <div class="single-cont__tech-issues">
@@ -128,11 +129,11 @@
             }
             ?>
         </div>
+        <?php wp_reset_postdata(); ?>
         <div class="single-cont__post-container">
             <h3 class="single-cont__heading">関連商品</h3>
             <ul class="box--wrapper">
                 <?php
-                $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
                 $args = [
                     'post_type' => 'product',
                     'post_status' => 'publish',
