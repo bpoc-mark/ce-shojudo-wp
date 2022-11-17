@@ -129,7 +129,6 @@
             }
             ?>
         </div>
-        <?php wp_reset_postdata(); ?>
         <div class="single-cont__post-container">
             <h3 class="single-cont__heading">関連商品</h3>
             <ul class="box--wrapper">
@@ -140,6 +139,7 @@
                     'posts_per_page' => 3,
                     'paged' => $paged,
                     'orderby' => 'rand',
+                    'ignore_custom_sort' => true,
                     'post__not_in' => array($post->ID),
                     'post_parent' => 0
                 ];

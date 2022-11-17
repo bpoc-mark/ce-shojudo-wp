@@ -172,6 +172,7 @@
                     'posts_per_page' => 3,
                     'paged' => $paged,
                     'orderby' => 'rand',
+                    'ignore_custom_sort' => true,
                     'post__not_in' => array($post->ID),
                     'post_parent' => 0
                 ];
