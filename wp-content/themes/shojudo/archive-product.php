@@ -14,16 +14,13 @@
                                 <a href="<?php echo get_permalink(); ?>">
                                     <figure>
                                         <?php
-                                        $file = get_field('banner');
+                                        $video = get_field('featured_video');
                                         $default_img = get_template_directory_uri();
                                         $featured = the_post_thumbnail();
 
-                                        if ($file['type'] == 'image') {
-                                            $img = $file['sizes']['large'];
-                                            echo '<img src="' . $img . '">';
-                                        } elseif (!empty($file)) {
-                                            echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                                        } elseif (!empty($featured)) {
+                                        if ($video != '') {
+                                            echo '<video src="' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                        } elseif (has_post_thumbnail()) {
                                             echo $featured;
                                         } else {
                                             echo '<img src="' . $default_img . '/release/image/default_img.png">';

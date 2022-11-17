@@ -52,6 +52,7 @@
             if ($details) : ?>
                 <?php foreach ($details as $detail) :
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_banner']);
+                    $video_attributes = wp_get_attachment_url($attachment_id);
                 ?>
                     <li class="single-cont__link-list--item">
                         <?php
@@ -137,6 +138,7 @@
                     'post_status' => 'publish',
                     'posts_per_page' => 3,
                     'paged' => $paged,
+                    'orderby' => 'rand',
                     'post__not_in' => array($post->ID),
                     'post_parent' => 0
                 ];
@@ -152,15 +154,16 @@
                                 <figure>
                                     <?php
                                     $file = get_field('banner');
-                                    $video = get_field('featured_video');
                                     $default_img = get_template_directory_uri();
+                                    $featured = the_post_thumbnail();
+
                                     if ($file['type'] == 'image') {
                                         $img = $file['sizes']['large'];
                                         echo '<img src="' . $img . '">';
-                                    } elseif ($file || $video) {
-                                        echo '<video src="' . $file['url'] . '' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                                    } elseif (!empty($video)) {
-                                        echo $video;
+                                    } elseif (!empty($file)) {
+                                        echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif (!empty($featured)) {
+                                        echo $featured;
                                     } else {
                                         echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                     }
