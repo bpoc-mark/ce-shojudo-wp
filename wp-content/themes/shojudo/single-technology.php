@@ -42,14 +42,35 @@
                 }
                 ?>
             </ul>
-            <p class="single-cont__tech-issues--list__ttl"><?php the_field('heading_issue'); ?></p>
-            <p class="single-cont__tech-issues--list__content"><?php the_field('how_to_fix'); ?></p>
+            <?php
+            $heading = the_field('heading_issue');
+            if (!empty($heading)) {
+                echo '<p class="single-cont__tech-issues--list__ttl">' . $heading . '</p>';
+            } else {
+                echo '';
+            }
+            ?>
+            <?php
+            $fix = the_field('how_to_fix');
+            if (!empty($fix)) {
+                echo '<<p class="single-cont__tech-issues--list__content">' . $fix . '</p>';
+            } else {
+                echo '';
+            }
+            ?>
         </div>
-        <p class="single-cont__red-notice"><?php the_field('red_notice'); ?></p>
+        <?php
+        $notice = the_field('red_notice');
+        if (!empty($notice)) {
+            echo '<p class="single-cont__red-notice">' . $notice . '</p>';
+        } else {
+            echo '';
+        }
+        ?>
         <h3 class="single-cont__heading"><?php the_field('second_heading_h3'); ?></h3>
-        <ul class="single-cont__link-list">
-            <?php $details = SCF::get('Link_Post');
-            if ($details) : ?>
+        <?php $details = SCF::get('Link_Post');
+        if ($details) : ?>
+            <ul class="single-cont__link-list">
                 <?php foreach ($details as $detail) :
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_banner']);
                     $video_attributes = wp_get_attachment_url($attachment_id);
@@ -57,7 +78,7 @@
                     <li class="single-cont__link-list--item">
                         <?php
                         $links = $detail['link_to_post'];
-                        if ($links != '') :
+                        if (!empty($links)) :
                         ?>
                             <a href="<?php echo $detail['link_to_post']; ?>" target="_blank">
                                 <div class="single-cont__link-list--item__image">
@@ -112,10 +133,18 @@
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
-            <?php endif; ?>
-        </ul>
+            </ul>
+        <?php else : echo ''; ?>
+        <?php endif; ?>
         <div class="single-cont__processing">
-            <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
+            <?php
+            $list = the_field('list_of_processing');
+            if (!empty($list)) {
+                echo '<h3 class="single-cont__heading">' . $list . '</h3>';
+            } else {
+                echo '';
+            }
+            ?>
             <div class="boxes">
                 <ul class="single-cont__processing--content-list box--wrapper">
                     <?php
@@ -133,7 +162,7 @@
                     <?php if ($the_query->have_posts()) : ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <li class="single-cont__processing--content-list__item box--container">
-                                <a href="<?php echo get_permalink(); ?>">
+                                <a href="<?php echo the_field('parent_post_custom_link'); ?>">
                                     <figure>
                                         <?php
                                         $video = get_field('featured_video');

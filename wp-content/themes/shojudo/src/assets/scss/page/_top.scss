@@ -246,9 +246,6 @@
 				}
 				.boxes {
 					padding-top: 13px;
-					@include is-min(1000px) {
-						border-bottom: 1px solid #cccccc;
-					}
 					.box--wrapper {
 						.box--container {
 							figure {

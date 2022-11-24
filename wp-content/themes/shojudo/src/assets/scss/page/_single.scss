@@ -188,9 +188,13 @@
 				}
 				&__image {
 					overflow: hidden;
+					img {
+						@include is-min(767px) {
+							height: 176px;
+						}
+					}
 					@include is-min(767px) {
 						width: 220px;
-						height: 176px;
 						margin-right: 30px;
 					}
 					@include is-max(767px) {
@@ -289,7 +293,7 @@
 		&__processing {
 			.box--wrapper {
 				margin: 0 !important;
-				justify-content: space-between;
+				justify-content: flex-start;
 			}
 			.box--container {
 				padding: 0;
