@@ -137,14 +137,7 @@
         <?php else : echo ''; ?>
         <?php endif; ?>
         <div class="single-cont__processing">
-            <?php
-            $list = the_field('list_of_processing');
-            if (!empty($list)) {
-                echo '<h3 class="single-cont__heading">' . $list . '</h3>';
-            } else {
-                echo '';
-            }
-            ?>
+            <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
             <div class="boxes">
                 <ul class="single-cont__processing--content-list box--wrapper">
                     <?php
