@@ -155,26 +155,34 @@
                     <?php if ($the_query->have_posts()) : ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                             <li class="single-cont__processing--content-list__item box--container">
-                                <a href="<?php echo the_field('parent_post_custom_link'); ?>">
-                                    <figure>
-                                        <?php
-                                        $video = get_field('featured_video');
-                                        $default_img = get_template_directory_uri();
-                                        $featured = the_post_thumbnail();
+                                <?php
+                                $link = get_field('parent_post_custom_link');
+                                $permalink = get_permalink();
+                                if (!empty($link)) {
+                                    echo '<a href="' . $link . '">';
+                                } else {
+                                    echo '<a href="' . $permalink . '">';
+                                }
+                                ?>
+                                <figure>
+                                    <?php
+                                    $video = get_field('featured_video');
+                                    $default_img = get_template_directory_uri();
+                                    $featured = the_post_thumbnail();
 
-                                        if (!empty($video)) {
-                                            echo '<video src="' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                                        } elseif (!empty($featured)) {
-                                            echo $featured;
-                                        } else {
-                                            echo '<img src="' . $default_img . '/release/image/default_img.png">';
-                                        }
-                                        ?>
-                                    </figure>
-                                    <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                    <div class="box--desc">
-                                        <p><?php echo the_content(); ?></p>
-                                    </div>
+                                    if (!empty($video)) {
+                                        echo '<video src="' . $video . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
+                                    } elseif (!empty($featured)) {
+                                        echo $featured;
+                                    } else {
+                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
+                                    }
+                                    ?>
+                                </figure>
+                                <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                <div class="box--desc">
+                                    <p><?php echo the_content(); ?></p>
+                                </div>
                                 </a>
                             </li>
                         <?php endwhile; ?>
