@@ -129,68 +129,6 @@
             }
             ?>
         </div>
-        <div class="single-cont__post-container">
-            <h3 class="single-cont__heading">関連商品</h3>
-            <ul class="box--wrapper">
-                <?php
-                $args = [
-                    'post_type' => 'product',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 3,
-                    'paged' => $paged,
-                    'orderby' => 'rand',
-                    'ignore_custom_sort' => true,
-                    'post__not_in' => array($post->ID),
-                    'post_parent' => 0
-                ];
-
-                $the_query = new WP_Query($args);
-                ?>
-
-                <?php if ($the_query->have_posts()) : ?>
-
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                        <li class="box--container">
-                            <a href="<?php echo get_permalink(); ?>">
-                                <figure>
-                                    <?php
-                                    $file = get_field('banner');
-                                    $default_img = get_template_directory_uri();
-                                    $featured = the_post_thumbnail();
-
-                                    if ($file['type'] == 'image') {
-                                        $img = $file['sizes']['large'];
-                                        echo '<img src="' . $img . '">';
-                                    } elseif (!empty($file)) {
-                                        echo '<video src="' . $file['url'] . '" muted autoplay loop webkit-playsinline playsinline preload="auto"></video>';
-                                    } elseif (!empty($featured)) {
-                                        echo $featured;
-                                    } else {
-                                        echo '<img src="' . $default_img . '/release/image/default_img.png">';
-                                    }
-                                    ?>
-                                </figure>
-                                <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                <div class="box--desc">
-                                    <?php echo the_content(); ?>
-                                </div>
-                            </a>
-                            <div class="box--lower-desc">
-                                <?php
-                                $childs = get_field('child_posts');
-                                if ($childs != '') :
-                                    foreach ($childs as $child) : ?>
-                                        <span>
-                                            <a href="<?php echo $child->guid; ?>"><?php echo $child->post_title; ?></a>
-                                        </span>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-                        </li>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </ul>
-        </div>
     </section>
 </div>
 <?php get_footer(); ?>
