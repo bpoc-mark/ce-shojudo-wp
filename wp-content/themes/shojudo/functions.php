@@ -105,3 +105,11 @@ document.addEventListener('wpcf7mailsent', function(event) {
 </script>
 <?php
 }
+
+//remove index on specific page with empty content
+
+if(is_single(array('197','439','386')) || is_page('257')){
+    echo '<meta name="robots" content="noindex, nofollow">';
+}else{
+    echo '';
+}

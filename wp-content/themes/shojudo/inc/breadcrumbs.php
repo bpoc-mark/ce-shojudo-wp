@@ -38,6 +38,11 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">事業所</span>
                     ';
+        } elseif(is_page('pwp')){
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">PWP</span>
+                    ';
         }elseif (is_singular('technology')) {
                 $post_object = get_queried_object();
                 $title   = apply_filters( 'the_title', $post_object->post_title );

@@ -29,7 +29,6 @@
     <meta name="format-detection" content="telephone=no">
     <title><?php echo SITE_NAME; ?></title>
     <meta name="description" itemprop="description" content="<?php echo DESCRIPTION; ?>">
-    <meta name=”robots” content=”noindex , nofollow”>
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>">
     <?php wp_head(); ?>
 
@@ -58,6 +57,7 @@
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
+                                            'post_parent' => 0
                                         ];
 
                                         $the_query = new WP_Query($args);

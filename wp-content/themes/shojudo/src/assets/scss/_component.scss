@@ -297,3 +297,18 @@ figure {
 		display: block;
 	}
 }
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+.mb-20 {
+	margin-bottom: 20px;
+}
+.mb-60 {
+	margin-bottom: 60px;
+}
+.mt-100 {
+	@include is-min(767px) {
+		margin-top: 100px;
+	}
+}
