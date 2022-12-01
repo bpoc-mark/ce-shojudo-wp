@@ -145,9 +145,9 @@
         <div class="container">
             <div class="sect_comparison__text">
                 <h3 class="sect_comparison--ttl">指紋がつきにくい</h3>
-                <p class="sect_comparison--desc">写真作品を触った際に指紋がつきにくいのも嬉しい特長。また、キズや汚れも目立ちにくく、作品のクオリティを保ちます。</p>
+                <p class="sect_comparison--desc text-left">写真作品を触った際に指紋がつきにくいのも嬉しい特長。また、キズや汚れも目立ちにくく、作品のクオリティを保ちます。</p>
             </div>
-            <div class="flex">
+            <div class="flex-no-wrap">
                 <div class="column">
                     <img src="<?php echo get_template_directory_uri();?>/release/image/pwp/feature-opera.png" alt="">
                 </div>
@@ -161,9 +161,10 @@
         <div class="container">
             <div class="sect_comparison__text">
                 <h3 class="sect_comparison--ttl">紫外線や水にも強い</h3>
-                <p class="sect_comparison--desc">水にも紫外線にも強い特長を持っています。ノンフレームで光が燦々と差し込む窓辺に飾るなど、写真の楽しみ方をグンと広げます。</p>
+                <p class="sect_comparison--desc text-left">水にも紫外線にも強い特長を持っています。ノンフレームで光が燦々と差し込む窓辺に飾るなど、写真の楽しみ方をグンと広げます。
+                </p>
             </div>
-            <div class="flex">
+            <div class="flex-no-wrap">
                 <div class="column">
                     <img src="<?php echo get_template_directory_uri();?>/release/image/pwp/feature-bouquet.png" alt="">
                 </div>

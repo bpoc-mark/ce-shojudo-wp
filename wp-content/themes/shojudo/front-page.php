@@ -15,13 +15,13 @@
                         $the_query = new WP_Query($args);
                         ?>
                         <?php if ($the_query->have_posts()) : ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <div class="swiper-slide">
-                                    <a href="<?php echo the_field('banner_link'); ?>">
-                                        <?php echo the_post_thumbnail('full'); ?>
-                                    </a>
-                                </div>
-                            <?php endwhile; ?>
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <div class="swiper-slide">
+                            <a href="<?php echo the_field('banner_link'); ?>">
+                                <?php echo the_post_thumbnail('full'); ?>
+                            </a>
+                        </div>
+                        <?php endwhile; ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -32,10 +32,14 @@
                 <div class="swiper-pagination"></div>
                 <div class="sect1--banner__s">
                     <figure>
-                        <a href="https://www.shojudo.co.jp/shohinken/"><img src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s1.svg" alt="arrow" /> </a>
+                        <a href="https://www.shojudo.co.jp/shohinken/"><img
+                                src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s1.svg"
+                                alt="arrow" /> </a>
                     </figure>
                     <figure>
-                        <a href="https://www.lonposhopsjd.com/"><img src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s2.svg" alt="arrow" /> </a>
+                        <a href="https://www.lonposhopsjd.com/"><img
+                                src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s2.svg"
+                                alt="arrow" /> </a>
                     </figure>
                 </div>
             </div>
@@ -50,7 +54,8 @@
                         <a class="view-all" href="https://shojudo.com/news/">
                             <p>View All</p>
                             <figure>
-                                <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/view-all-arrow-right.svg" alt="arrow" />
+                                <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/view-all-arrow-right.svg"
+                                    alt="arrow" />
                             </figure>
                         </a>
                     </div>
@@ -68,20 +73,21 @@
                         $the_query = new WP_Query($args);
                         ?>
                         <?php if ($the_query->have_posts()) : ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <?php
                                 $id = get_the_ID();
                                 ?>
-                                <li>
-                                    <a href="https://shojudo.com/news//#<?php echo $id; ?>">
-                                        <span><?php echo get_the_date('Y/m/d'); ?></span>
-                                        <p><?php the_title(); ?></p>
-                                        <figure>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/arrow-right.svg" alt="arrow" />
-                                        </figure>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
+                        <li>
+                            <a href="https://shojudo.com/news//#<?php echo $id; ?>">
+                                <span><?php echo get_the_date('Y/m/d'); ?></span>
+                                <p><?php the_title(); ?></p>
+                                <figure>
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/arrow-right.svg"
+                                        alt="arrow" />
+                                </figure>
+                            </a>
+                        </li>
+                        <?php endwhile; ?>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -109,11 +115,11 @@
 
                         <?php if ($the_query->have_posts()) : ?>
 
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li class="box--container">
-                                    <a href="<?php echo get_permalink(); ?>">
-                                        <figure class="white--border">
-                                            <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="box--container">
+                            <a href="<?php echo get_permalink(); ?>">
+                                <figure class="white--border">
+                                    <?php
                                             $video = get_field('featured_video');
                                             $default_img = get_template_directory_uri();
                                             $featured = the_post_thumbnail();
@@ -126,14 +132,14 @@
                                                 echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                             }
                                             ?>
-                                        </figure>
-                                        <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                        <div class="box--desc">
-                                            <p><?php echo the_content(); ?></p>
-                                        </div>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
+                                </figure>
+                                <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                <div class="box--desc">
+                                    <p><?php echo the_content(); ?></p>
+                                </div>
+                            </a>
+                        </li>
+                        <?php endwhile; ?>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -154,6 +160,7 @@
                             'post_status' => 'publish',
                             'posts_per_page' => 12,
                             'paged' => $paged,
+                            'post_parent' => 0,
                         ];
 
                         $the_query = new WP_Query($args);
@@ -161,11 +168,19 @@
 
                         <?php if ($the_query->have_posts()) : ?>
 
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li class="box--container">
-                                    <a href="<?php echo get_permalink(); ?>">
-                                        <figure>
-                                            <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="box--container">
+                            <?php
+                                $link = get_field('parent_post_custom_link');
+                                $permalink = get_permalink();
+                                if (!empty($link)) {
+                                    echo '<a href="' . $link . '">';
+                                } else {
+                                    echo '<a href="' . $permalink . '">';
+                                }
+                                ?>
+                            <figure>
+                                <?php
                                             $video = get_field('featured_video');
                                             $default_img = get_template_directory_uri();
                                             $featured = the_post_thumbnail();
@@ -178,25 +193,25 @@
                                                 echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                             }
                                             ?>
-                                        </figure>
-                                        <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                        <div class="box--desc">
-                                            <p><?php echo the_content(); ?></p>
-                                        </div>
-                                    </a>
-                                    <div class="box--lower-desc">
-                                        <?php
+                            </figure>
+                            <h3 class="box--title"><?php echo the_title(); ?></h3>
+                            <div class="box--desc">
+                                <p><?php echo the_content(); ?></p>
+                            </div>
+                            </a>
+                            <div class="box--lower-desc">
+                                <?php
                                         $childs = get_field('child_posts');
                                         if ($childs != '') :
                                             foreach ($childs as $child) : ?>
-                                                <span>
-                                                    <a href="<?php echo $child->guid; ?>"><?php echo $child->post_title; ?></a>
-                                                </span>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </li>
-                            <?php endwhile; ?>
+                                <span>
+                                    <a href="<?php echo $child->guid; ?>"><?php echo $child->post_title; ?></a>
+                                </span>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                        <?php endwhile; ?>
                         <?php endif; ?>
                     </ul>
                 </div>

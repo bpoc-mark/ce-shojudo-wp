@@ -95,6 +95,9 @@
 			font-size: 20px;
 			font-weight: 700;
 			margin-top: 10px;
+			@include is-max(767px) {
+				font-size: 16px;
+			}
 		}
 		&__content {
 			display: flex;
@@ -129,9 +132,6 @@
 			font-weight: 500;
 			letter-spacing: 0.5px;
 			margin-top: 10px;
-			@include is-max(767px) {
-				font-size: 11px;
-			}
 		}
 	}
 	.flex {
@@ -161,7 +161,6 @@
 			@include is-min(767px) {
 				padding-right: 0.9375rem;
 				padding-left: 0.9375rem;
-				width: 50%;
 			}
 			img {
 				display: block;
@@ -209,6 +208,7 @@
 				@include is-max(767px) {
 					font-size: 20px;
 					text-align: center;
+					margin-top: 2rem;
 				}
 			}
 			&--column_large {
@@ -225,6 +225,18 @@
 					width: 33.33333%;
 				}
 			}
+		}
+	}
+	.flex-no-wrap {
+		display: flex;
+		.column {
+			&:nth-child(odd) {
+				padding-right: 0.9375rem;
+			}
+			&:nth-child(even) {
+				padding-left: 0.9375rem;
+			}
+			width: 50%;
 		}
 	}
 	.about-size {

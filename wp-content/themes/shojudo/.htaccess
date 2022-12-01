@@ -1,0 +1,11 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^shojudo.co.jp [NC,OR]
+
+RewriteCond %{HTTP_HOST} ^www.shojudo.co.jp [NC]
+
+RewriteRule ^(.\*)$ https://www.shojudo.com/$1 [L,R=301,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ index.html/$1 [L]

@@ -12,7 +12,8 @@
                                     <li onclick="location.href='/toiawase';">
                                         <a href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>">お問い合わせ
                                             <figure>
-                                                <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
+                                                <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
+                                                    alt="white_arrow" />
                                             </figure>
                                         </a>
                                     </li>
@@ -26,8 +27,11 @@
                         <nav class="f-nav">
                             <div class="nav--contact">
                                 <div class="nav--contact__wrap">
-                                    <a class="nav01--link" href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>" target="_blank">お問い合わせ
-                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
+                                    <a class="nav01--link"
+                                        href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>"
+                                        target="_blank">お問い合わせ
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
+                                            alt="white_arrow" />
                                     </a>
                                 </div>
                             </div>
@@ -44,6 +48,8 @@
                                             'post_status' => 'publish',
                                             'posts_per_page' => -1,
                                             'paged' => $paged,
+                                            'post_parent' => 0,
+
                                         ];
 
                                         $the_query = new WP_Query($args);
@@ -51,10 +57,11 @@
 
                                         <?php if ($the_query->have_posts()) : ?>
 
-                                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                                <li class="f-nav--item"><a class="f-nav--link" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-                                                </li>
-                                            <?php endwhile; ?>
+                                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                        <li class="f-nav--item"><a class="f-nav--link"
+                                                href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                        </li>
+                                        <?php endwhile; ?>
                                         <?php endif; ?>
                                     </ul>
                                 </div>
@@ -79,10 +86,11 @@
 
                                     <?php if ($the_query->have_posts()) : ?>
 
-                                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                            <li class="f-nav--item"><a class="f-nav--link" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-                                            </li>
-                                        <?php endwhile; ?>
+                                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                    <li class="f-nav--item"><a class="f-nav--link"
+                                            href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                    </li>
+                                    <?php endwhile; ?>
                                     <?php endif; ?>
                                 </ul>
                             </div>
@@ -98,6 +106,7 @@
                                         'post_status' => 'publish',
                                         'posts_per_page' => -1,
                                         'paged' => $paged,
+                                        'post_parent' => 0,
                                     ];
 
                                     $the_query = new WP_Query($args);
@@ -105,10 +114,11 @@
 
                                     <?php if ($the_query->have_posts()) : ?>
 
-                                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                            <li class="f-nav--item"><a class="f-nav--link" href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
-                                            </li>
-                                        <?php endwhile; ?>
+                                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                    <li class="f-nav--item"><a class="f-nav--link"
+                                            href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                    </li>
+                                    <?php endwhile; ?>
                                     <?php endif; ?>
                                 </ul>
                             </div>
@@ -117,28 +127,36 @@
                                 <h4 class="f-nav--wrap__title">その他</h4>
                                 <ul class="f-nav--list">
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('news')); ?>" class="f-nav--link">ニュース</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('news')); ?>"
+                                            class="f-nav--link">ニュース</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('company')); ?>" class="f-nav--link">会社案内</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('company')); ?>"
+                                            class="f-nav--link">会社案内</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('company/history')); ?>" class="f-nav--link">沿革</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('company/history')); ?>"
+                                            class="f-nav--link">沿革</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('company/office')); ?>" class="f-nav--link">事業所</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('company/office')); ?>"
+                                            class="f-nav--link">事業所</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('csr')); ?>" class="f-nav--link">CSR</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('csr')); ?>"
+                                            class="f-nav--link">CSR</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('company/careers')); ?>" class="f-nav--link">採用情報</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('company/careers')); ?>"
+                                            class="f-nav--link">採用情報</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>" class="f-nav--link">お問い合わせ</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('support/toiawase')); ?>"
+                                            class="f-nav--link">お問い合わせ</a>
                                     </li>
                                     <li class="f-nav--item">
-                                        <a href="<?php echo get_permalink(get_page_by_path('privacypolicy')); ?>" class="f-nav--link">個人情報保護方針</a>
+                                        <a href="<?php echo get_permalink(get_page_by_path('privacypolicy')); ?>"
+                                            class="f-nav--link">個人情報保護方針</a>
                                     </li>
                                 </ul>
                             </div>
@@ -149,12 +167,21 @@
                     <div class="container">
                         <div class="f_info">
                             <div class="f_info--icons">
-                                <a href="https://www.amazon.co.jp/s?me=A2XSZCEAXYBVTT&marketplaceID=A1VC38T7YXB528&redirect=true"><img src="<?php echo get_template_directory_uri(); ?>/release/image/common/amazon_icon.svg" alt=""></a>
-                                <a href="https://twitter.com/show10do"><img src="<?php echo get_template_directory_uri(); ?>/release/image/common/twitter_icon.svg" alt=""></a>
-                                <a href="https://www.facebook.com/profile.php?id=100016980709112"><img src="<?php echo get_template_directory_uri(); ?>/release/image/common/facebook_icon.svg" alt=""></a>
+                                <a
+                                    href="https://www.amazon.co.jp/s?me=A2XSZCEAXYBVTT&marketplaceID=A1VC38T7YXB528&redirect=true"><img
+                                        src="<?php echo get_template_directory_uri(); ?>/release/image/common/amazon_icon.svg"
+                                        alt=""></a>
+                                <a href="https://twitter.com/show10do"><img
+                                        src="<?php echo get_template_directory_uri(); ?>/release/image/common/twitter_icon.svg"
+                                        alt=""></a>
+                                <a href="https://www.facebook.com/profile.php?id=100016980709112"><img
+                                        src="<?php echo get_template_directory_uri(); ?>/release/image/common/facebook_icon.svg"
+                                        alt=""></a>
                             </div>
                             <div class="f_info--copyrights">
-                                <a href="https://www.shojudo.co.jp/"><img src="<?php echo get_template_directory_uri(); ?>/release/image/common/footer_logo.svg" alt=""></a>
+                                <a href="https://www.shojudo.co.jp/"><img
+                                        src="<?php echo get_template_directory_uri(); ?>/release/image/common/footer_logo.svg"
+                                        alt=""></a>
                                 <p>&copy; Shojudo Co., Ltd.</p>
                             </div>
                         </div>

@@ -21,11 +21,19 @@
                         $the_query = new WP_Query($args);
                         ?>
                         <?php if ($the_query->have_posts()) : ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li class="box--container">
-                                    <a href="<?php echo get_permalink(); ?>">
-                                        <figure>
-                                            <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="box--container">
+                            <?php
+                                $link = get_field('parent_post_custom_link');
+                                $permalink = get_permalink();
+                                if (!empty($link)) {
+                                    echo '<a href="' . $link . '">';
+                                } else {
+                                    echo '<a href="' . $permalink . '">';
+                                }
+                                ?>
+                            <figure>
+                                <?php
                                             $video = get_field('featured_video');
                                             $default_img = get_template_directory_uri();
                                             $featured = the_post_thumbnail();
@@ -38,14 +46,14 @@
                                                 echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                             }
                                             ?>
-                                        </figure>
-                                        <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                        <div class="box--desc">
-                                            <?php echo the_content(); ?>
-                                        </div>
-                                    </a>
-                                    <div class="box--lower-desc">
-                                        <?php
+                            </figure>
+                            <h3 class="box--title"><?php echo the_title(); ?></h3>
+                            <div class="box--desc">
+                                <?php echo the_content(); ?>
+                            </div>
+                            </a>
+                            <div class="box--lower-desc">
+                                <?php
                                         $tags = get_the_terms(
                                             $post->ID,
                                             'tags'
@@ -53,13 +61,14 @@
                                         if ($tags) :
                                             foreach ($tags as $tag) :
                                         ?>
-                                                <span>
-                                                    <a href="<?php echo get_term_link($tag); ?>"><?php echo esc_html($tag->name); ?></a></span>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </div>
-                                </li>
-                            <?php endwhile; ?>
+                                <span>
+                                    <a
+                                        href="<?php echo get_term_link($tag); ?>"><?php echo esc_html($tag->name); ?></a></span>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                        <?php endwhile; ?>
                         <?php endif; ?>
                     </ul>
                 </div>

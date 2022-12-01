@@ -24,9 +24,17 @@
                         <?php if ($the_query->have_posts()) : ?>
                         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <li class="box--container">
-                            <a href="<?php echo get_permalink(); ?>">
-                                <figure>
-                                    <?php
+                            <?php
+                                $link = get_field('parent_post_custom_link');
+                                $permalink = get_permalink();
+                                if (!empty($link)) {
+                                    echo '<a href="' . $link . '">';
+                                } else {
+                                    echo '<a href="' . $permalink . '">';
+                                }
+                                ?>
+                            <figure>
+                                <?php
                                         $video = get_field('featured_video');
                                         $default_img = get_template_directory_uri();
                                         $featured = the_post_thumbnail();
@@ -39,11 +47,11 @@
                                             echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                         }
                                         ?>
-                                </figure>
-                                <h3 class="box--title"><?php echo the_title(); ?></h3>
-                                <div class="box--desc">
-                                    <?php echo the_content(); ?>
-                                </div>
+                            </figure>
+                            <h3 class="box--title"><?php echo the_title(); ?></h3>
+                            <div class="box--desc">
+                                <?php echo the_content(); ?>
+                            </div>
                             </a>
                             <div class="box--lower-desc">
                                 <?php

@@ -348,6 +348,7 @@ footer {
 					padding-top: 30px;
 					padding-bottom: 10px;
 					text-align: center;
+					margin-bottom: 0;
 					@include is-min(1000px) {
 						padding-top: 50px;
 						padding-bottom: 50px;
@@ -440,6 +441,9 @@ footer {
 		}
 	}
 	.footer01 {
+		@include is-max(767px) {
+			position: absolute;
+		}
 		.container {
 			@include is-min(1000px) {
 				position: relative;
@@ -516,7 +520,8 @@ footer {
 							flex-wrap: wrap;
 							.f-nav--item {
 								width: calc(100% / 2);
-								&:last-child {
+								&:last-child,
+								&:nth-last-child(2) {
 									&::after {
 										display: none;
 									}
@@ -701,7 +706,9 @@ footer {
 				@include is-max(999px) {
 					font-size: 16px;
 					line-height: 22px;
-					// white-space: nowrap;
+				}
+				@include is-max(375px) {
+					font-size: 4vw;
 				}
 				&:hover {
 					opacity: 0.6;
@@ -711,6 +718,9 @@ footer {
 	}
 	.footer02 {
 		background-color: #002578;
+		.container {
+			margin-bottom: 0;
+		}
 		.f_info {
 			@include is-max(999px) {
 				text-align: center;
@@ -755,6 +765,7 @@ footer {
 				padding-top: 30px;
 				padding-bottom: 10px;
 				text-align: center;
+				margin-bottom: 0;
 				@include is-min(1000px) {
 					padding-top: 50px;
 					padding-bottom: 50px;
