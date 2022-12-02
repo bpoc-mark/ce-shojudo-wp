@@ -4,11 +4,11 @@
     <section class="single-cont">
         <?php
         while (have_posts()) : the_post(); ?>
-        <h1 class="sect--title"><?php echo the_title(); ?></h1>
-        <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
-        <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
-        <div class="single-cont__featured-img">
-            <?php
+            <h1 class="sect--title"><?php echo the_title(); ?></h1>
+            <p class="single-cont__sub-heading"><?php the_field('short_description'); ?></p>
+            <h2 class="single-cont__main-heading"><?php the_field('second_heading'); ?></h2>
+            <div class="single-cont__featured-img">
+                <?php
                 $file = get_field('banner');
                 $default_img = get_template_directory_uri();
 
@@ -21,8 +21,8 @@
                     echo '<img src="' . $default_img . '/release/image/default_img.png">';
                 }
                 ?>
-        </div>
-        <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
+            </div>
+            <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>
         <h3 class="single-cont__heading"><?php the_field('first_heading_h3'); ?></h3>
         <p><?php the_field('first_heading_content'); ?></p>
@@ -33,7 +33,7 @@
                 if ($issues) {
                     foreach ($issues as $issue) {
                 ?>
-                <li class="single-cont__tech-issues--list__item"><?php echo $issue; ?></li>
+                        <li class="single-cont__tech-issues--list__item"><?php echo $issue; ?></li>
                 <?php }
                 } ?>
             </ul>
@@ -45,27 +45,27 @@
         <ul class="single-cont__link-list">
             <?php $details = SCF::get('Link_Post');
             if ($details) : ?>
-            <?php foreach ($details as $detail) :
+                <?php foreach ($details as $detail) :
                     $image_attributes = wp_get_attachment_image_src($attachment_id = $detail['post_image']);
                 ?>
-            <li class="single-cont__link-list--item">
-                <a href="">
-                    <div class="single-cont__link-list--item__image">
-                        <?php
+                    <li class="single-cont__link-list--item">
+                        <a href="">
+                            <div class="single-cont__link-list--item__image">
+                                <?php
                                 if ($image_attributes != '') {
                                     echo '<img src="' . $image_attributes[0] . '" alt="">';
                                 } else {
                                     echo '';
                                 }
                                 ?>
-                    </div>
-                    <div class="single-cont__link-list--item__content">
-                        <p class="title"><?php echo $detail['title']; ?></p>
-                        <p class="content"><?php echo $detail['content']; ?></p>
-                    </div>
-                </a>
-            </li>
-            <?php endforeach; ?>
+                            </div>
+                            <div class="single-cont__link-list--item__content">
+                                <p class="title"><?php echo $detail['title']; ?></p>
+                                <p class="content"><?php echo $detail['content']; ?></p>
+                            </div>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             <?php endif; ?>
         </ul>
         <div class="single-cont__processing">
@@ -92,11 +92,11 @@
                     $the_query = new WP_Query($args);
                     ?>
                     <?php if ($the_query->have_posts()) : ?>
-                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <li class="single-cont__processing--content-list__item box--container">
-                        <a href="<?php echo get_permalink(); ?>">
-                            <figure>
-                                <?php
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <li class="single-cont__processing--content-list__item box--container">
+                                <a href="<?php echo get_permalink(); ?>">
+                                    <figure>
+                                        <?php
                                         $file = get_field('banner');
                                         $default_img = get_template_directory_uri();
 
@@ -109,14 +109,14 @@
                                             echo '<img src="' . $default_img . '/release/image/default_img.png">';
                                         }
                                         ?>
-                            </figure>
-                            <h3 class="box--title"><?php echo the_title(); ?></h3>
-                            <div class="box--desc">
-                                <p><?php echo the_content(); ?></p>
-                            </div>
-                        </a>
-                    </li>
-                    <?php endwhile; ?>
+                                    </figure>
+                                    <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                    <div class="box--desc">
+                                        <p><?php echo the_content(); ?></p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -143,28 +143,28 @@
 
                 <?php if ($the_query->have_posts()) : ?>
 
-                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                <li class="box--container">
-                    <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
-                        <figure>
-                            <?php echo the_post_thumbnail(); ?>
-                        </figure>
-                        <h3 class="box--title"><?php echo the_title(); ?></h3>
-                        <div class="box--desc">
-                            <?php echo the_content(); ?>
-                        </div>
-                        <div class="box--lower-desc">
-                            <?php
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <li class="box--container">
+                            <a href="https://www.shojudo.co.jp/product/cashvoucher.html">
+                                <figure>
+                                    <?php echo the_post_thumbnail(); ?>
+                                </figure>
+                                <h3 class="box--title"><?php echo the_title(); ?></h3>
+                                <div class="box--desc">
+                                    <?php echo the_content(); ?>
+                                </div>
+                                <div class="box--lower-desc">
+                                    <?php
                                     $tags = get_the_tags();
                                     if ($tags) :
                                         foreach ($tags as $tag) : ?>
-                            <span><?php echo esc_html($tag->name); ?></span>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
-                    </a>
-                </li>
-                <?php endwhile; ?>
+                                            <span><?php echo esc_html($tag->name); ?></span>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endwhile; ?>
                 <?php endif; ?>
             </ul>
         </div>
@@ -183,24 +183,21 @@
                             <a href="">
                                 お問い合わせ 法人
                                 <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
                                 </figure>
                             </a>
                         </li>
                         <li onclick="location.href='';">
                             <a href="">お問い合わせ 個人
                                 <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
                                 </figure>
                             </a>
                         </li>
                         <li onclick="location.href='';">
                             <a href="">お見積り
                                 <figure>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg"
-                                        alt="white_arrow" />
+                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/white_arrow.svg" alt="white_arrow" />
                                 </figure>
                             </a>
                         </li>
