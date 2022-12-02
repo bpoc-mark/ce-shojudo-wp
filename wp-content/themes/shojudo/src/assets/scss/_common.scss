@@ -14,9 +14,9 @@ reset
 }
 
 body {
-	font-family: YakuHanJP_Noto, "Noto Sans JP", Meiryo, sans-serif;
-	font-size: 16px;
-	font-weight: 500;
+	font-family: YakuHanJP_Noto, "Noto Sans JP", Meiryo, sans-serif !important;
+	font-size: 16px !important;
+	font-weight: 500 !important;
 	color: $font-color01;
 	line-height: 1.5;
 }
@@ -173,6 +173,7 @@ header {
 			}
 		}
 		.nav02 {
+			margin: 0;
 			@include is-max(999px) {
 				display: none;
 			}
@@ -769,6 +770,9 @@ footer {
 				@include is-min(1000px) {
 					padding-top: 50px;
 					padding-bottom: 50px;
+				}
+				@include is-min(767px) {
+					margin-bottom: 60px;
 				}
 				p {
 					font-size: 15px;

@@ -106,7 +106,7 @@
                                         echo '<p class="title">' . $detail['title'] . '</p>';
                                     }
                                     ?>
-                        <p class="content"><?php echo $detail['content']; ?></p>
+                        <?php echo $detail['content']; ?>
                     </div>
                 </div>
                 <?php endif; ?>
