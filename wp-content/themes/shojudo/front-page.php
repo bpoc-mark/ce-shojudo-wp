@@ -32,7 +32,7 @@
                 <div class="swiper-pagination"></div>
                 <div class="sect1--banner__s">
                     <figure>
-                        <a href="https://www.shojudo.co.jp/shohinken/"><img src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s1.svg" alt="arrow" /> </a>
+                        <a href="<?php echo get_permalink(get_page_by_path('shohinken')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s1.svg" alt="arrow" /> </a>
                     </figure>
                     <figure>
                         <a href="https://www.lonposhopsjd.com/"><img src="<?php echo get_template_directory_uri(); ?>/release/image/new-top/section-1/top2__banner__s2.svg" alt="arrow" /> </a>

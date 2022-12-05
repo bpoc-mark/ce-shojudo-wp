@@ -26,7 +26,8 @@
 									height: 21.962vw;
 								}
 								@include is-max(999px) {
-									height: 380px;
+									height: unset;
+									aspect-ratio: 3/2;
 								}
 								img {
 									object-fit: cover;
