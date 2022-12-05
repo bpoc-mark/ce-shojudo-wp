@@ -260,6 +260,9 @@
 				font-size: 18px;
 				line-height: 26px;
 				margin: 0 auto;
+				@include is-max(767px) {
+					text-align: left;
+				}
 			}
 		}
 		.button {
