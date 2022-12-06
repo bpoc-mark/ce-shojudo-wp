@@ -303,6 +303,11 @@ figure {
 		display: block;
 	}
 }
+.pc {
+	@include is-max(767px) {
+		display: none;
+	}
+}
 
 .mb-30 {
 	margin-bottom: 30px;

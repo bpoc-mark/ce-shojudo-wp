@@ -22,7 +22,6 @@
         })(window, document, 'script', 'dataLayer', 'GTM-P5XRG3B');
     </script>
     <!-- End Google Tag Manager -->
-
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +29,18 @@
     <title><?php echo SITE_NAME; ?></title>
     <meta name="description" itemprop="description" content="<?php echo DESCRIPTION; ?>">
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>">
+    <?php remove_action('wp_head', 'noindex', 1); ?>
+    <?php
+    if (is_front_page()) : ?>
+        <link rel="canonical" href="https://www.shojudo.com/">
+    <?php endif; ?>
+    <?php
+    if (is_single(array('197', '439', '386')) || is_page('257')) {
+        echo '<meta name="robots" content="noindex, nofollow">';
+    } else {
+        echo '';
+    }
+    ?>
     <?php wp_head(); ?>
 
 </head>
@@ -66,7 +77,18 @@
                                         <?php if ($the_query->have_posts()) : ?>
 
                                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                                <li class="sub--menu--items"><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                                <li class="sub--menu--items">
+                                                    <?php
+                                                    $link = get_field('parent_post_custom_link');
+                                                    $permalink = get_permalink();
+                                                    if (!empty($link)) {
+                                                        echo '<a href="' . $link . '">';
+                                                    } elseif ($no_link != 0) {
+                                                        echo '';
+                                                    } else {
+                                                        echo '<a href="' . $permalink . '">';
+                                                    }
+                                                    ?><?php echo the_title(); ?></a>
                                                 </li>
                                             <?php endwhile; ?>
                                         <?php endif; ?>
@@ -90,7 +112,18 @@
                                         ?>
                                         <?php if ($the_query->have_posts()) : ?>
                                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                                <li class="sub--menu--items"><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                                <li class="sub--menu--items">
+                                                    <?php
+                                                    $link = get_field('parent_post_custom_link');
+                                                    $permalink = get_permalink();
+                                                    if (!empty($link)) {
+                                                        echo '<a href="' . $link . '">';
+                                                    } elseif ($no_link != 0) {
+                                                        echo '';
+                                                    } else {
+                                                        echo '<a href="' . $permalink . '">';
+                                                    }
+                                                    ?><?php echo the_title(); ?></a>
                                                 </li>
                                             <?php endwhile; ?>
                                         <?php endif; ?>
@@ -117,7 +150,18 @@
                                         <?php if ($the_query->have_posts()) : ?>
 
                                             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                                <li class="sub--menu--items"><a href="<?php echo get_permalink(); ?>"><?php echo the_title(); ?></a>
+                                                <li class="sub--menu--items">
+                                                    <?php
+                                                    $link = get_field('parent_post_custom_link');
+                                                    $permalink = get_permalink();
+                                                    if (!empty($link)) {
+                                                        echo '<a href="' . $link . '">';
+                                                    } elseif ($no_link != 0) {
+                                                        echo '';
+                                                    } else {
+                                                        echo '<a href="' . $permalink . '">';
+                                                    }
+                                                    ?><?php echo the_title(); ?></a>
                                                 </li>
                                             <?php endwhile; ?>
                                         <?php endif; ?>

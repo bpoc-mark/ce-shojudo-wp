@@ -133,8 +133,11 @@
                                 <?php
                                 $link = get_field('parent_post_custom_link');
                                 $permalink = get_permalink();
+                                $no_link = get_field('no_link');
                                 if (!empty($link)) {
                                     echo '<a href="' . $link . '">';
+                                } elseif ($no_link != 0) {
+                                    echo '';
                                 } else {
                                     echo '<a href="' . $permalink . '">';
                                 }

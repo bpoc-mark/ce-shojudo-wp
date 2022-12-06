@@ -221,7 +221,7 @@
     <section class="sect_comparison">
         <div class="container">
             <div class="sect_comparison__text">
-                <h2 class="title">「ピュアＷプリント」とは？</h2>
+                <h2 class="title">サイズについて</h2>
             </div>
             <div class="flex flex__content about-size">
                 <div class="column">

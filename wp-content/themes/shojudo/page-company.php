@@ -15,50 +15,62 @@
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
                                 <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                <a href="" class="title">セキュリティ印刷</a>
+                                <a href="<?php echo site_url('/technology/security'); ?>" class="title">セキュリティ印刷</a>
                             </li>
                             <li class="main">
                                 <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                <a href="" class="title">ホログラム加工</a>
+                                <a href="<?php echo site_url('/technology/security/hologram'); ?>" class="title">ホログラム加工</a>
                             </li>
                             <?php
                             $tags = [
-                                ['', '金券'],
-                                ['', '商品券'],
-                                ['', 'クーポン券'],
-                                ['', '地域振興券'],
-                                ['', '証明書用紙'],
-                                ['', '楽譜用紙'],
-                                ['', '資格証'],
-                                ['', 'タクシー券等']
+                                ['/product/cashvoucher', '金券'],
+                                ['/product/giftcertificates', '商品券'],
+                                ['/product/coupon', 'クーポン券'],
+                                ['/product/commuterpass', '地域振興券'],
+                                ['/product/certificate_paper', '証明書用紙'],
+                                ['/product/musicpaper', '楽譜用紙'],
+                                ['/product/qualification', '資格証'],
+                                ['/product/taxitickets', 'タクシー券等']
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <a href="<?php echo $tag[0]; ?>"><?php echo $tag[1]; ?></a>
+                                    <?php if ($tag[0] != '') : ?>
+                                        <a href="<?php echo $tag[0]; ?>">
+                                            <?php echo $tag[1]; ?>
+                                        </a>
+                                    <?php else : ?>
+                                        <p><?php echo $tag[1] ?></p>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
                                 <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                <a href="" class="title">特殊印刷・加工</a>
+                                <a href="<?php echo site_url('/technology/special'); ?>" class="title">特殊印刷・加工</a>
                             </li>
                             <?php
                             $tags = [
-                                ['', '保険者証'],
-                                ['', 'カード'],
-                                ['', '封印シール'],
-                                ['', 'ラベル、部分シール'],
-                                ['', '目隠しシール'],
+                                ['/product/insurancecard', '保険者証'],
+                                ['/product/card', 'カード'],
+                                ['/product/seal', '封印シール'],
+                                ['/technology/special/label', 'ラベル、部分シール'],
+                                ['/technology/special/blindfold', '目隠しシール'],
                                 ['', 'スクラッチ'],
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <a href="<?php echo $tag[0]; ?>"><?php echo $tag[1]; ?></a>
+                                    <?php if ($tag[0] != '') : ?>
+                                        <a href="<?php echo $tag[0]; ?>">
+                                            <?php echo $tag[1]; ?>
+                                        </a>
+                                    <?php else : ?>
+                                        <p><?php echo $tag[1] ?></p>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                             <li><span>・</span>蛇腹折加工</li>
@@ -66,62 +78,79 @@
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
                                 <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                <a href="" class="title">デジタル印刷</a>
+                                <a href="<?php echo site_url('/technology/digitalprint'); ?>" class="title">デジタル印刷</a>
                             </li>
                             <?php
                             $tags = [
-                                ['', 'フィルムタペストリー'],
-                                ['', 'デジタル長尺印刷'],
-                                ['', 'パノラマ長尺印刷'],
-                                ['', 'ラベル、部分シール'],
-                                ['', 'ダイヤグラム'],
+                                ['/product/poster/', 'フィルムタペストリー'],
+                                ['/product/longprintdigital/', 'デジタル長尺印刷'],
+                                ['/product/panoramaprint/', 'パノラマ長尺印刷'],
+                                ['/product/diagram/', 'ダイヤグラム'],
                                 ['', 'セキュリティデジタル印刷'],
-                                ['', 'デジタル印刷一般'],
-                                ['', 'DPS（データプリントサービス）'],
+                                ['/digitalprint/genericdigital/', 'デジタル印刷一般'],
+                                ['/digital/dps/', 'DPS（データプリントサービス）'],
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <a href="<?php echo $tag[0]; ?>"><?php echo $tag[1]; ?></a>
+                                    <?php if ($tag[0] != '') : ?>
+                                        <a href="<?php echo $tag[0]; ?>">
+                                            <?php echo $tag[1]; ?>
+                                        </a>
+                                    <?php else : ?>
+                                        <p><?php echo $tag[1] ?></p>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
                                 <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                <a href="" class="title">フォーム印刷</a>
+                                <a href="<?php echo site_url('/technology/form'); ?>" class="title">フォーム印刷</a>
                             </li>
                             <?php
                             $tags = [
-                                ['', '長尺印刷<br>(20インチ～99インチ)'],
-                                ['', '多色フォーム印刷'],
-                                ['', 'OCR、OMR帳票'],
-                                ['', '特殊印刷'],
+                                ['/product/longprint/', '長尺印刷<br>(20インチ～99インチ)'],
+                                ['/technology/form/multicolor/', '多色フォーム印刷'],
+                                ['/technology/form/ocr_omr/', 'OCR、OMR帳票'],
+                                ['/form/spe_paper/', '特殊印刷'],
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <a href="<?php echo $tag[0]; ?>"><?php echo $tag[1]; ?></a>
+                                    <?php if ($tag[0] != '') : ?>
+                                        <a href="<?php echo $tag[0]; ?>">
+                                            <?php echo $tag[1]; ?>
+                                        </a>
+                                    <?php else : ?>
+                                        <p><?php echo $tag[1] ?></p>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                             <li><span>・</span>サーマル印刷</li>
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
-                                <a href="" class="title">その他</a>
+                                <p class="title">その他</p>
                             </li>
                             <?php
                             $tags = [
-                                ['', '静電気除去装置（TRINC）'],
-                                ['', '低電力UV装置'],
+                                ['/product/static_eliminatione_quipment/', '静電気除去装置（TRINC）'],
+                                ['/product/lowvoltage_uveqipment/', '低電力UV装置'],
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
                                     <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <a href="<?php echo $tag[0]; ?>"><?php echo $tag[1]; ?></a>
+                                    <?php if ($tag[0] != '') : ?>
+                                        <a href="<?php echo $tag[0]; ?>">
+                                            <?php echo $tag[1]; ?>
+                                        </a>
+                                    <?php else : ?>
+                                        <p><?php echo $tag[1] ?></p>
+                                    <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
