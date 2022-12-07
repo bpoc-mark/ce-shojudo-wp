@@ -57,7 +57,7 @@
                         $links = $detail['link_to_post'];
                         if ($links != '') :
                         ?>
-                            <a href="<?php echo $detail['link_to_post']; ?>" target="_blank">
+                            <a href="<?php echo $detail['link_to_post']; ?>">
                                 <div class="single-cont__link-list--item__image">
                                     <?php
                                     if ($image_attributes != '') {
@@ -111,6 +111,19 @@
                 <?php endforeach; ?>
             <?php endif; ?>
         </ul>
+        <div class="single-cont__process-link">
+            <?php
+            $link_text = get_field('process_link_text');
+            $link = get_field('process_link');
+            $img = get_template_directory_uri();
+            if ($link != '') : ?>
+                <a href="<?php echo $link; ?>">
+                    <img src="<?php echo $img; ?>/release/image/link-arrow.svg">
+                    <p><?php echo $link_text; ?></p>
+                </a>
+            <?php else : echo ''; ?>
+            <?php endif; ?>
+        </div>
         <div class="single-cont__processing">
             <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
             <div class="boxes">

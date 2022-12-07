@@ -10,14 +10,12 @@
             <ul class="single-cont__red-boxes">
                 <?php
                 $redboxes = SCF::get('Red_Box');
-                foreach ($redboxes as $redbox) {
-                    if ($redbox['red_box'] != '') {
-                        echo '<li class="single-cont__red-boxes--item">' . $redbox['red_box'] . '</li>';
-                    } else {
-                        echo '';
-                    }
-                }
-                ?>
+                foreach ($redboxes as $redbox) :
+                    if ($redbox['red_box'] != '') : ?>
+                        <li class="single-cont__red-boxes--item"><?php echo $redbox['red_box']; ?></li>
+                    <?php else : echo '';
+                    endif; ?>
+                <?php endforeach; ?>
             </ul>
             <div class="single-cont__featured-img">
                 <?php
@@ -40,7 +38,7 @@
             <p class="single-cont__main-content"><?php the_field('main_content'); ?></p>
         <?php endwhile; ?>
         <h3 class="single-cont__heading"><?php the_field('first_heading_h3'); ?></h3>
-        <p><?php the_field('first_heading_content'); ?></p>
+        <p class="single-cont__main-content"><?php the_field('first_heading_content'); ?></p>
         <div class="single-cont__tech-issues">
             <ul class="single-cont__tech-issues--list">
                 <?php
@@ -54,22 +52,8 @@
                 }
                 ?>
             </ul>
-            <?php
-            $heading = the_field('heading_issue');
-            if (!empty($heading)) {
-                echo '<p class="single-cont__tech-issues--list__ttl">' . $heading . '</p>';
-            } else {
-                echo '';
-            }
-            ?>
-            <?php
-            $fix = the_field('how_to_fix');
-            if (!empty($fix)) {
-                echo '<<p class="single-cont__tech-issues--list__content">' . $fix . '</p>';
-            } else {
-                echo '';
-            }
-            ?>
+            <p class="single-cont__tech-issues--list__ttl"><?php the_field('heading_issue'); ?></p>
+            <p class="single-cont__tech-issues--list__content"><?php the_field('how_to_fix'); ?></p>
         </div>
         <p class="single-cont__red-notice"><?php the_field('red_notice'); ?></p>
         <h3 class="single-cont__heading"><?php the_field('second_heading_h3'); ?></h3>
@@ -85,7 +69,7 @@
                         $links = $detail['link_to_post'];
                         if (!empty($links)) :
                         ?>
-                            <a href="<?php echo $detail['link_to_post']; ?>" target="_blank">
+                            <a href="<?php echo $detail['link_to_post']; ?>">
                                 <div class="single-cont__link-list--item__image">
                                     <?php
                                     $default_img = get_template_directory_uri();
@@ -141,6 +125,19 @@
             </ul>
         <?php else : echo ''; ?>
         <?php endif; ?>
+        <div class="single-cont__process-link">
+            <?php
+            $link_text = get_field('process_link_text');
+            $link = get_field('process_link');
+            $img = get_template_directory_uri();
+            if ($link != '') : ?>
+                <a href="<?php echo $link; ?>">
+                    <img src="<?php echo $img; ?>/release/image/link-arrow.svg">
+                    <p><?php echo $link_text; ?></p>
+                </a>
+            <?php else : echo ''; ?>
+            <?php endif; ?>
+        </div>
         <div class="single-cont__processing">
             <h3 class="single-cont__heading"><?php the_field('list_of_processing'); ?></h3>
             <div class="boxes">

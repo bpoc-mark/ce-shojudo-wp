@@ -27,6 +27,9 @@
 			@include is-max(480px) {
 				flex-wrap: wrap;
 			}
+			&:not(:has(li)) {
+				display: none;
+			}
 			&--item {
 				padding: 10px 0;
 				color: #d20000;
@@ -44,7 +47,7 @@
 			}
 		}
 		&__featured-img {
-			margin: 30px auto;
+			margin: 20px auto 30px;
 			display: block;
 			max-width: 800px;
 			height: 315px;
@@ -300,7 +303,7 @@
 		&__tech-issues {
 			&--list {
 				display: flex;
-				justify-content: space-between;
+				// justify-content: space-between;
 				margin: 16px 0 20px;
 				flex-wrap: wrap;
 				gap: 30px;

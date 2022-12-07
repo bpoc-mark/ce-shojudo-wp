@@ -44,7 +44,7 @@
                                                 <?php echo $tag[1]; ?>
                                             </a>
                                         <?php else : ?>
-                                            <p><?php echo $tag[1] ?></p>
+                                            <?php echo $tag[1]; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
@@ -77,7 +77,7 @@
                                                 <?php echo $tag[1]; ?>
                                             </a>
                                         <?php else : ?>
-                                            <p><?php echo $tag[1] ?></p>
+                                            <?php echo $tag[1]; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
@@ -110,7 +110,7 @@
                                                 <?php echo $tag[1]; ?>
                                             </a>
                                         <?php else : ?>
-                                            <p><?php echo $tag[1] ?></p>
+                                            <?php echo $tag[1]; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
@@ -141,7 +141,7 @@
                                                 <?php echo $tag[1]; ?>
                                             </a>
                                         <?php else : ?>
-                                            <p><?php echo $tag[1] ?></p>
+                                            <?php echo $tag[1]; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
@@ -168,7 +168,7 @@
                                                 <?php echo $tag[1]; ?>
                                             </a>
                                         <?php else : ?>
-                                            <p><?php echo $tag[1] ?></p>
+                                            <?php echo $tag[1]; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
