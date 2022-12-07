@@ -35,13 +35,17 @@
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <?php if ($tag[0] != '') : ?>
-                                        <a href="<?php echo $tag[0]; ?>">
-                                            <?php echo $tag[1]; ?>
-                                        </a>
+                                    <?php if ($tag[0] == '') : ?>
+                                        <span>・</span><?php echo $tag[1]; ?>
                                     <?php else : ?>
-                                        <p><?php echo $tag[1] ?></p>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
+                                        <?php if ($tag[0] != '') : ?>
+                                            <a href="<?php echo $tag[0]; ?>">
+                                                <?php echo $tag[1]; ?>
+                                            </a>
+                                        <?php else : ?>
+                                            <p><?php echo $tag[1] ?></p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
@@ -59,21 +63,25 @@
                                 ['/technology/special/label', 'ラベル、部分シール'],
                                 ['/technology/special/blindfold', '目隠しシール'],
                                 ['', 'スクラッチ'],
+                                ['', '蛇腹折加工'],
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <?php if ($tag[0] != '') : ?>
-                                        <a href="<?php echo $tag[0]; ?>">
-                                            <?php echo $tag[1]; ?>
-                                        </a>
+                                    <?php if ($tag[0] == '') : ?>
+                                        <span>・</span><?php echo $tag[1]; ?>
                                     <?php else : ?>
-                                        <p><?php echo $tag[1] ?></p>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
+                                        <?php if ($tag[0] != '') : ?>
+                                            <a href="<?php echo $tag[0]; ?>">
+                                                <?php echo $tag[1]; ?>
+                                            </a>
+                                        <?php else : ?>
+                                            <p><?php echo $tag[1] ?></p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
-                            <li><span>・</span>蛇腹折加工</li>
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
@@ -93,13 +101,17 @@
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <?php if ($tag[0] != '') : ?>
-                                        <a href="<?php echo $tag[0]; ?>">
-                                            <?php echo $tag[1]; ?>
-                                        </a>
+                                    <?php if ($tag[0] == '') : ?>
+                                        <span>・</span><?php echo $tag[1]; ?>
                                     <?php else : ?>
-                                        <p><?php echo $tag[1] ?></p>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
+                                        <?php if ($tag[0] != '') : ?>
+                                            <a href="<?php echo $tag[0]; ?>">
+                                                <?php echo $tag[1]; ?>
+                                            </a>
+                                        <?php else : ?>
+                                            <p><?php echo $tag[1] ?></p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
@@ -115,21 +127,25 @@
                                 ['/technology/form/multicolor/', '多色フォーム印刷'],
                                 ['/technology/form/ocr_omr/', 'OCR、OMR帳票'],
                                 ['/form/spe_paper/', '特殊印刷'],
+                                ['', 'サーマル印刷']
                             ];
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <?php if ($tag[0] != '') : ?>
-                                        <a href="<?php echo $tag[0]; ?>">
-                                            <?php echo $tag[1]; ?>
-                                        </a>
+                                    <?php if ($tag[0] == '') : ?>
+                                        <span>・</span><?php echo $tag[1]; ?>
                                     <?php else : ?>
-                                        <p><?php echo $tag[1] ?></p>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
+                                        <?php if ($tag[0] != '') : ?>
+                                            <a href="<?php echo $tag[0]; ?>">
+                                                <?php echo $tag[1]; ?>
+                                            </a>
+                                        <?php else : ?>
+                                            <p><?php echo $tag[1] ?></p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
-                            <li><span>・</span>サーマル印刷</li>
                         </ul>
                         <ul class="sect1__company-content--list__item">
                             <li class="main">
@@ -143,13 +159,17 @@
                             foreach ($tags as $tag) :
                             ?>
                                 <li>
-                                    <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
-                                    <?php if ($tag[0] != '') : ?>
-                                        <a href="<?php echo $tag[0]; ?>">
-                                            <?php echo $tag[1]; ?>
-                                        </a>
+                                    <?php if ($tag[0] == '') : ?>
+                                        <span>・</span><?php echo $tag[1]; ?>
                                     <?php else : ?>
-                                        <p><?php echo $tag[1] ?></p>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/release/image/common/blue_arrow.svg" alt="">
+                                        <?php if ($tag[0] != '') : ?>
+                                            <a href="<?php echo $tag[0]; ?>">
+                                                <?php echo $tag[1]; ?>
+                                            </a>
+                                        <?php else : ?>
+                                            <p><?php echo $tag[1] ?></p>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </li>
                             <?php endforeach; ?>
