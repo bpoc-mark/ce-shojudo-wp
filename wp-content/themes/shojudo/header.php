@@ -35,7 +35,7 @@
         <link rel="canonical" href="https://www.shojudo.com/">
     <?php endif; ?>
     <?php
-    if (is_single(array('197', '439', '386')) || is_page('257')) {
+    if (is_single(array('197', '439', '386', '438')) || is_page('257')) {
         echo '<meta name="robots" content="noindex, nofollow">';
     } else {
         echo '';

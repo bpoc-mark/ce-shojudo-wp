@@ -112,6 +112,11 @@
                         <span class="aioseo-breadcrumb-separator">/</span>
                         <span class="aioseo-breadcrumb">404</span>
                     ';
+        } elseif (is_page('news')) {
+            echo '
+                        <span class="aioseo-breadcrumb-separator">/</span>
+                        <span class="aioseo-breadcrumb">ニュース</span>
+                    ';
         } elseif (is_tax('tags')) {
             $trail     = '';
             $query_obj = get_queried_object();
