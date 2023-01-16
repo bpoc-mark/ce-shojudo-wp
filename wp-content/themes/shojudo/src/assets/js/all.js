@@ -82,7 +82,8 @@ var swiper = new Swiper(".banner--swiper", {
 var swiper = new Swiper(".banner--swiper2", {
 	loop: true,
 	slidesPerView: 1,
-	centeredSlides: true,
+	centeredSlides: false,
+	// autoplay: false,
 	autoplay: {
 		delay: 3000,
 	},
